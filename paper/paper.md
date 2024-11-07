@@ -6,16 +6,33 @@ tags:
   - PubChem
   - unknown chemical substances
 authors:
-  - name: First Author
-    affiliation: 1
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
-    affiliation: 2
+- name: Claire Rioualen
+  orcid: "0000-0002-7684-8679"
+  affiliation: 1
+- name: Maria Doyle
+  orcid: "0000-0000-0000-0000"
+  affiliation: 2
+- name: Hervé Ménager
+  orcid: "0000-0002-7552-1009"
+  affiliation: 1,3
+- name: Matúš Kalaš
+  orcid: "0000-0002-1509-4981"
+  affiliation: 4
+- name: first, last
+  orcid: "0000-0000-0000-0000"
+  affiliation: 5
 affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: Second Affiliation
-    index: 2
+- name: Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France
+  index: 1
+- name: xxx
+  index: 2
+- name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics
+    Hub, 75015, Paris, France
+  index: 3
+- name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
+  index: 4
+ - name: xxx
+   index: 5
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
