@@ -14,7 +14,7 @@ authors:
     affiliation: 2
   - name: Hervé Ménager
     orcid: "0000-0002-7552-1009"
-    affiliation: 1,3
+    affiliation: 1, 3
   - name: Matúš Kalaš
     orcid: "0000-0002-1509-4981"
     affiliation: 4
@@ -22,7 +22,7 @@ authors:
     orcid: "0000-0000-0000-0000"
     affiliation: 5
 affiliations:
-  - name: Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France
+  - name: IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE, CEA, 91057 Evry, France
     index: 1
   - name: Limerick Digital Cancer Research Centre, Health Research Institute, School of Medicine, University of Limerick, V94 T9PX, Ireland
     index: 2
