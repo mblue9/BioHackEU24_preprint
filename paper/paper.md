@@ -48,7 +48,7 @@ group: Project 27
 git_url: https://github.com/mblue9/BioHackEU24_preprint
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: First Author \emph{et al.}
+authors_short: Claire Rioualen \emph{et al.}
 ---
 
 # Abstract
