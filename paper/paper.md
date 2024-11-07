@@ -26,13 +26,12 @@ affiliations:
     index: 1
   - name: xxx
     index: 2
-  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics
-    Hub, 75015, Paris, France
+  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France
     index: 3
   - name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
     index: 4
   - name: xxx
-     index: 5
+    index: 5
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
