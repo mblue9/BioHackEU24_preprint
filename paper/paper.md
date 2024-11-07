@@ -67,10 +67,18 @@ Several package developers also reviewed and updated EDAM annotations in bio.too
 - [rWikiPathways](https://bio.tools/rwikipathways)
 
 
-## Integrate Bioconductor packages into ELIXIR RSEc
+## Integrate Bioconductor packages with ELIXIR RSEc
 
 We have now incorporated Bioconductor metadata into the ELIXIR Research Software Ecosystem (RSEc) framework , with automatic weekly updates to facilitate ease of maintenance and integration. See [details here](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
 
+On the other hand, we discussed how EDAM annotations might find their way into R / Bioconductor packages as first class citizens. 
+This could be as simple as having custom fields in `DESCRIPTION` with one or more EDAM topics. 
+For information where the key:value schema of `DESCRIPTION` is insufficient, or to simply avoid bloating `DESCRIPTION`, it is possible to use a new, rich annotation file 
+similar to the `CITATION` for bibliographic information, although the use of ontology terms and relations would make JSON-LD or RDF related formats more suitable. 
+This new file could include information about operations and their input & output data and formats, similar to the information available from bio.tools. 
+Such a file could The format could be inspired by Bioschemas [ComputationalTool](https://bioschemas.org/profiles/ComputationalTool/).
+To improve the maintenance, Roxygen2 infrastructure and custom roclets could be used to collect the annotations directly from the R source code, 
+similar to how `DESCRIPTION`, `NAMESPACE` and the manpages can be generated already today. 
 
 ## Automate EDAM suggesting terms for Bioconductor packages
 
