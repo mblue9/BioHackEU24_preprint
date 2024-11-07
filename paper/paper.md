@@ -88,7 +88,7 @@ Several package developers also reviewed and updated EDAM annotations in bio.too
 
 We have now incorporated Bioconductor metadata into the ELIXIR Research Software Ecosystem (RSEc) framework , with automatic weekly updates to facilitate ease of maintenance and integration. See [details here](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
 
-## Automating EDAM suggesting terms for Bioconductor packages
+## Automating EDAM annotation for Bioconductor packages
 
 Prototyping is underway for a tool to automatically suggest EDAM terms based on Bioconductor package content, with initial explorations documented in [this vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html). Following these explorations, a need was identified to refactor the Python code in [biocEDAM/inst/curbioc](https://github.com/vjcitn/biocEDAM/blob/main/inst/curbioc/curbioc.py) to streamline and modularize functionality, leading to the development of the `edamize()` function. Demonstrated on an [MSnbase vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html#example-3-msnbase), `edamize()` marks an important step toward automating EDAM annotations, though it currently lacks robustness and requires further refinement.
 
