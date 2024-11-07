@@ -21,6 +21,9 @@ authors:
   - name: Sebastian Lobentanzer
     orcid: "0000-0003-3399-6695"
     affiliation: 
+  - name: Egon Willighagen
+    orcid: 0000-0001-7542-0286
+    affiliation: 6
   - name: firstName lastName
     orcid: "0000-0000-0000-0000"
     affiliation: 5
@@ -37,6 +40,8 @@ affiliations:
     index: 5
   - name: xxx
     index: 6
+  - name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, Netherlands
+    index: 7
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
