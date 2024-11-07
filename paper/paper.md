@@ -8,14 +8,21 @@ tags:
 authors:
   - name: First Author
     affiliation: 1
+  - name: Hervé Ménager
+    orcid: 0000-0002-7552-1009
+    affiliation: 1, 2
   - name: Last Author
     orcid: 0000-0000-0000-0000
     affiliation: 2
 affiliations:
-  - name: First Affiliation
+  - name: Institut Français de Bioinformatique, Evry, F-91000, France
     index: 1
-  - name: Second Affiliation
+  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, F-75015 Paris, France
     index: 2
+  - name: First Affiliation
+    index: 3
+  - name: Second Affiliation
+    index: 4
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
