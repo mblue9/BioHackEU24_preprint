@@ -18,6 +18,9 @@ authors:
   - name: Matúš Kalaš
     orcid: "0000-0002-1509-4981"
     affiliation: 4
+  - name: Sebastian Lobentanzer
+    orcid: "0000-0003-3399-6695"
+    affiliation: 
   - name: firstName lastName
     orcid: "0000-0000-0000-0000"
     affiliation: 5
@@ -30,8 +33,10 @@ affiliations:
     index: 3
   - name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
     index: 4
-  - name: xxx
+  - name: Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany
     index: 5
+  - name: xxx
+    index: 6
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
