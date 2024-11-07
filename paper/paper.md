@@ -10,7 +10,7 @@ authors:
     orcid: "0000-0002-7684-8679"
     affiliation: 1
   - name: Maria Doyle
-    orcid: "0000-0000-0000-0000"
+    orcid: "0000-0003-4847-8436"
     affiliation: 2
   - name: Hervé Ménager
     orcid: "0000-0002-7552-1009"
@@ -24,7 +24,7 @@ authors:
 affiliations:
   - name: Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France
     index: 1
-  - name: xxx
+  - name: Limerick Digital Cancer Research Centre, Health Research Institute, School of Medicine, University of Limerick, V94 T9PX, Ireland
     index: 2
   - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France
     index: 3
