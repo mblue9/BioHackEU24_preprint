@@ -1,64 +1,69 @@
 ---
-title: 'BioHackEU24 report: Integrating Bioconductor packages with the ELIXIR Research Software Ecosystem using EDAM'
+title: 'BioHackEU24 report: Integrating Bioconductor packages with the ELIXIR Research
+  Software Ecosystem using EDAM'
 title_short: 'BioHackEU24 #27: Integrating Bioconductor with ELIXIR RSEc'
-tags:
-  - bioinformatics
-  - ontology
-  - biohackeu24
-authors:
-  - name: Claire Rioualen
-    orcid: "0000-0002-7684-8679"
-    affiliation: 1
-  - name: Vincent J Carey
-    orcid: "0000-0003-4046-0063"
-    affiliation: 2   
-  - name: Matúš Kalaš
-    orcid: "0000-0002-1509-4981"
-    affiliation: 3
-  - name: Sebastian Lobentanzer
-    orcid: "0000-0003-3399-6695"
-    affiliation: 4
-  - name: Hervé Ménager
-    orcid: "0000-0002-7552-1009"
-    affiliation: 1, 5
-  - name: Egon Willighagen
-    orcid: 0000-0001-7542-0286
-    affiliation: 6
-  - name: firstName lastName
-    orcid: "0000-0000-0000-0000"
-    affiliation: 7
-  - name: Maria A Doyle
-    orcid: "0000-0003-4847-8436"
-    affiliation: n  
+date: "8 November 2024"
+output: pdf_document
 affiliations:
-  - name: IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE, CEA, 91057 Evry, France
-    index: 1
-  - name: Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA
-    index: 2
-  - name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
-    index: 3
-  - name: Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany
-    index: 4
-  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France
-    index: 5
-  - name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, Netherlands
-    index: 6
-  - name: xxx
-    index: 7
-  - name: Limerick Digital Cancer Research Centre, Health Research Institute, School of Medicine, University of Limerick, V94 T9PX, Ireland
-    index: n
-date: 8 November 2024
+- name: "IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE,
+    CEA, 91057 Evry, France"
+  index: 1
+- name: Channing Division of Network Medicine, Mass General Brigham, Harvard Medical
+    School, Boston MA, 02115 USA
+  index: 2
+- name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
+  index: 3
+- name: Heidelberg University, Faculty of Medicine and Heidelberg University Hospital,
+    Institute for Computational Biomedicine, Heidelberg, Germany
+  index: 4
+- name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics
+    Hub, 75015, Paris, France
+  index: 5
+- name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht,
+    Netherlands
+  index: 6
+- name: xxx
+  index: 7
+- name: Limerick Digital Cancer Research Centre, Health Research Institute, School
+    of Medicine, University of Limerick, V94 T9PX, Ireland
+  index: false
+tags:
+- bioinformatics
+- ontology
+- biohackeu24
 cito-bibliography: paper.bib
 event: BH24EU
-biohackathon_name: "BioHackathon Europe 2024"
-biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Barcelona, Spain, 2024"
+biohackathon_name: BioHackathon Europe 2024
+biohackathon_url: "https://biohackathon-europe.org/"
+biohackathon_location: Barcelona, Spain, 2024
 group: Project 27
-# URL to project git repo --- should contain the actual paper.md:
 git_url: https://github.com/mblue9/BioHackEU24_preprint
-# This is the short authors description that is used at the
-# bottom of the generated paper (typically the first two authors):
 authors_short: Claire Rioualen \emph{et al.}
+authors:
+- name: Claire Rioualen
+  orcid: "0000-0002-7684-8679"
+  affiliation: 1
+- name: Vincent J Carey
+  orcid: "0000-0003-4046-0063"
+  affiliation: 2
+- name: Matúš Kalaš
+  orcid: "0000-0002-1509-4981"
+  affiliation: 3
+- name: Sebastian Lobentanzer
+  orcid: "0000-0003-3399-6695"
+  affiliation: 4
+- name: Hervé Ménager
+  orcid: "0000-0002-7552-1009"
+  affiliation: 1, 5
+- name: Egon Willighagen
+  orcid: "0000-0001-7542-0286"
+  affiliation: 6
+- name: firstName lastName
+  orcid: "0000-0000-0000-0000"
+  affiliation: 7
+- name: Maria A Doyle
+  orcid: "0000-0003-4847-8436"
+  affiliation: false
 ---
 
 # Abstract
@@ -73,7 +78,16 @@ Key results from the ELIXIR BioHackathon 2024 week include substantial progress 
 
 The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosystem.github.io/) promotes the FAIR principles—Findability, Accessibility, Interoperability, and Reusability—and uses bio.tools and the EDAM ontology to organise bioinformatics tools. Aligning Bioconductor packages with these standards aims to enhance tool discoverability within the broader bioinformatics community.
 
+Bioconductor currently uses an ad hoc vocabulary called biocViews, which is structured as a graph with over 400 terms describing package attributes. However, it lacks the formal structure of a true ontology, which can limit its utility for automated discovery and interoperability. EDAM, on the other hand, is an OWL-based ontology specifically designed for data analysis and data management concepts in biosciences, making it a better candidate for formalised, interoperable annotations.
+
 This project focuses on mapping the biocViews taxonomy to EDAM terms, assessing biocViews-EDAM mappings to identify gaps and inconsistencies, curating a reference subset of Bioconductor packages with manual annotations, and developing tools for automated EDAM term suggestions. Additionally, pathways for automated synchronisation between Bioconductor and bio.tools are being established. Beyond advancing the EDAM standard, this initiative builds a collaborative bridge between Bioconductor and ELIXIR. Through structured integration, community-driven development, and quality refinement, this project contributes to ongoing efforts toward a more accessible and interoperable bioinformatics ecosystem.
+
+![biocViews categories on the Bioconductor website. biocViews (shown on the left) is a non-ontological, hierarchical vocabulary of over 400 terms used to categorise Bioconductor packages based on their functionality.](figures/biocViews.png)
+
+![EDAM ontology structure. EDAM organises bioinformatics concepts into a hierarchical ontology with four main categories: Data, Format, Operation, and Topic. This formal structure facilitates interoperability by providing standardised, machine-readable annotations that enhance discoverability and integration across bioinformatics tools and platforms.](figures/EDAM.png)
+
+![Bio.tools DESeq2 Example. The bio.tools entry for DESeq2 demonstrates how EDAM terms are applied to specify the tool’s data, operations, and formats, enhancing categorisation and searchability within ELIXIR.](figures/biotools_DESeq2.png)
+
 
 # Results
 
@@ -118,8 +132,7 @@ Prototype development is underway for a tool to suggest EDAM terms based on Bioc
 
 An additional approach explored embedding Bioconductor package vignettes into a vector space, using OpenAI’s text-embedding-3-large model and visualizing the results through PCA. Using the reference set of 37 packages identified during the BioHackathon (detailed in the Defining a reference set of packages section), we observed some thematic clustering, revealing similarities across package descriptions that could assist with EDAM term suggestions. Embedding clusters could eventually be customized by EDAM’s top-level categories (e.g., "purpose," "inputs," "outputs"), further supporting user workflows in annotating packages with EDAM terms. This embedding-based approach, while in its early stages, shows potential for aiding both package authors and curators.
 
-![Figure X: PCA of Bioconductor package embeddings from the curated reference set. Vignettes were embedded using OpenAI's text-embedding-3-large model, with each point representing a vignette. Packages with multiple vignettes appear multiple times. Observed clustering patterns may guide future categorization by top-level EDAM categories (e.g., "purpose," "inputs," "outputs") to support improved EDAM term suggestions.](figures/embeddings_PCA.png)  
-
+![PCA of Bioconductor package embeddings. PCA of Bioconductor package embeddings from the curated reference set. Vignettes were embedded using OpenAI's text-embedding-3-large model, with each point representing a vignette. Packages with multiple vignettes appear multiple times. Observed clustering patterns may guide future categorization by top-level EDAM categories (e.g., "purpose," "inputs," "outputs") to support improved EDAM term suggestions.](figures/embeddings_PCA.png)
 
 To record EDAM terms directly in Bioconductor packages, a potential enhancement was proposed (discussed above in the RSEc integration section): adding a [custom field in the DESCRIPTION file](https://r-pkgs.org/description.html#sec-description-custom-fields) for Bioconductor packages, allowing for EDAM terms (e.g., topics, operations, data types) to be recorded directly within the package metadata. Additionally, the [creation of a roclet](https://roxygen2.r-lib.org/articles/extending.html#creating-a-new-roclet) would enable developers to annotate packages with these EDAM terms directly in their code, using the Roxygen tool they already use for documentation. This approach would generate a structured metadata file similar to the operations graph in [bio.tools for xcms](https://bio.tools/xcms), allowing Bioconductor packages to be more precisely described for integration into bio.tools and enhancing discoverability within the ELIXIR ecosystem.
 
