@@ -137,7 +137,13 @@ To advance BioChatter, we are seeking specific user questions and expected outco
 
 # Future work
 
-Establish guidelines for the annotation of Bioconductor packages in bio.tools....
+To continue advancing the integration of Bioconductor within the ELIXIR Research Software Ecosystem, several key initiatives are planned. First, we aim to establish synchronization between Bioconductor and bio.tools by automating the transfer of Bioconductor package metadata from RSEc into bio.tools, ensuring that updates are propagated regularly.
+
+In the long term, authors could be given the option to enhance their tool’s profile directly in bio.tools, adding specific details or context beyond standard Bioconductor annotations. This approach allows Bioconductor’s metadata to serve as a reliable baseline in bio.tools while enabling authors to enhance the description of their tool for the wider bioinformatics community.
+
+The EDAM term mapping will also be refined for the reference set and extended to cover the entire Bioconductor ecosystem, improving coverage and consistency for a broad range of bioinformatics applications. We plan to also refine the automated tool for suggesting EDAM terms based on package content, building on the embedding-based prototype. This tool could help package authors and curators efficiently annotate software by analyzing key content features.
+
+A roadmap is planned through 2026, outlining regular online meetings and milestones to guide these developments and ensure ongoing collaboration with both Bioconductor and ELIXIR communities.
 
 # Links to software
 
