@@ -145,18 +145,13 @@ Plans include automating Bioconductor metadata synchronisation with bio.tools, r
 
 This project utilised multiple resources to support the integration of Bioconductor packages within the ELIXIR Research Software Ecosystem.
 
-The [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM) served as the primary workspace for EDAM term mapping and developing the `edamize()` function for automated annotations.
-
-Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub repository](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
-
-The [Google Sheet of packages and terms ](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148) contains the curated reference package list, along with ongoing EDAM annotations and metadata. It also includes the results of manual reviews of automated biocViews-EDAM mappings, assessing the accuracy and relevance of each mapping.
-
-A [BioChatter prototype module](https://github.com/biocypher/biochatter/tree/biotools-API) is in development to support natural language querying via the bio.tools API, to be refined with additional use cases.
+- The [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM) served as the primary workspace for EDAM term mapping and developing the `edamize()` function for automated annotations.
+- Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub repository](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
+- The [Google Sheet of packages and terms ](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148) contains the curated reference package list, along with ongoing EDAM annotations and metadata. It also includes the results of manual reviews of automated biocViews-EDAM mappings, assessing the accuracy and relevance of each mapping.
+- A [BioChatter prototype module](https://github.com/biocypher/biochatter/tree/biotools-API) is in development to support natural language querying via the bio.tools API, to be refined with additional use cases.
 
 ## Acknowledgements
 
 This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d'Investissements d'Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This work was supported in part by NHGRI U24HG004059 "Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics". This project has been made possible in part by grants 2024-XXX (TODO: Add Vince's CZI EOSS6 grant id), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. 
-
-...
 
 ## References
