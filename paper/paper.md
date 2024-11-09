@@ -93,6 +93,8 @@ TODO: Add info from Aurelien and Ben.
 
 We created an initial reference set of Bioconductor packages, accessible in the “Package list” sheet ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1269194852#gid=1269194852)). This includes well-known, heavily downloaded packages, as well as those suggested by project contributors and developers. The “Package curation” table ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)) was developed for annotating these packages with EDAM terms, to improve discoverability and integration with bio.tools. Contributors are encouraged to help populate the “should they be in bio.tools?” column and further refine the annotations.
 
+A total of 37 packages were identified for this reference set during the BioHackathon, forming the basis for the curation and embedding-based analyses detailed below.
+
 Several package developers also reviewed and updated EDAM annotations in bio.tools for their packages, providing curated examples for future work, including:
 
 -   [xcms](https://bio.tools/xcms)
@@ -117,6 +119,7 @@ similar to how `DESCRIPTION`, `NAMESPACE` and the manpages can be generated alre
 Prototyping is underway for a tool to automatically suggest EDAM terms based on Bioconductor package content. with initial explorations documented in [this vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html). Following these explorations, a need was identified to refactor the Python code in [biocEDAM/inst/curbioc](https://github.com/vjcitn/biocEDAM/blob/main/inst/curbioc/curbioc.py) to streamline and modularize functionality, leading to the development of the `edamize()` function. Demonstrated on an [MSnbase vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html#example-3-msnbase), `edamize()` marks an important step toward automating EDAM annotations, though it currently lacks robustness and requires further refinement.
 
 An additional approach explored embedding Bioconductor package vignettes into a vector space, using OpenAI’s text-embedding-3-large model and visualizing the results through PCA. Using the reference set of 37 packages identified during the BioHackathon (detailed in the Defining a reference set of packages section), we observed some thematic clustering, revealing similarities across package descriptions that could assist with EDAM term suggestions. Embedding clusters could eventually be customized by EDAM’s top-level categories (e.g., "purpose," "inputs," "outputs"), further supporting user workflows in annotating packages with EDAM terms. This embedding-based approach, while in its early stages, shows potential for aiding both package authors and curators.
+
 ![Figure X: PCA of Bioconductor package embeddings from the curated reference set. Vignettes were embedded using OpenAI's text-embedding-3-large model, with each point representing a vignette. Packages with multiple vignettes appear multiple times. Observed clustering patterns may guide future categorization by top-level EDAM categories (e.g., "purpose," "inputs," "outputs") to support improved EDAM term suggestions.](figures/embeddings_PCA.png)  
 
 
