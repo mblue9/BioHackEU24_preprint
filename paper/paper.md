@@ -133,7 +133,19 @@ To advance BioChatter, we are seeking specific user questions and expected outco
 
 # Discussion
 
+The integration of Bioconductor packages within the ELIXIR Research Software Ecosystem has highlighted both the potential and the complexities involved in aligning metadata across bioinformatics platforms. The initial mapping of Bioconductor’s biocViews taxonomy to the EDAM ontology represents a promising step toward enhancing the interoperability and discoverability of Bioconductor tools. However, structural differences between biocViews and EDAM require further manual review to ensure accuracy and relevance, and this refinement process is ongoing.
+
+The embedding-based approach for EDAM term suggestion shows potential for automating annotations by identifying clusters within package descriptions, which may align with EDAM categories. This tool remains in its prototype stage, with additional work needed to improve accuracy and expand its usability across packages. 
+
+Additionally, we explored strategies for embedding EDAM annotations directly within Bioconductor packages through custom fields in the DESCRIPTION file or dedicated annotation files with Roxygen2 support and custom roclet. These methods could make EDAM terms an integral part of Bioconductor package metadata, simplifying alignment with bio.tools.
+
+The BioChatter module, initiated as a prototype during this project, offers a concept for querying bio.tools data in natural language. It requires further development, guided by well-defined user cases, to ensure it meets the needs of the bioinformatics community effectively.
+
 # Conclusions
+
+This project represents an important foundational effort toward integrating Bioconductor within the ELIXIR Research Software Ecosystem. Progress in mapping biocViews to EDAM and developing prototype tools for automated EDAM term suggestion have established the groundwork for enhancing metadata interoperability. Future work will involve finalising and refining the EDAM mappings, advancing the automated annotation tool, and exploring sustainable annotation practices.
+
+These next steps will contribute to a more cohesive bioinformatics ecosystem, ensuring that Bioconductor resources are both accessible and interoperable within ELIXIR’s infrastructure.
 
 # Future work
 
