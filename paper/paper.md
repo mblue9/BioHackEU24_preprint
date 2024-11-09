@@ -151,7 +151,7 @@ Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub repository](
 
 The [Google Sheet of packages and terms ](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148) contains the curated reference package list, along with ongoing EDAM annotations and metadata. It also includes the results of manual reviews of automated biocViews-EDAM mappings, assessing the accuracy and relevance of each mapping.
 
-(TODO: Add link for BioChatter bio.tools code if available, and some text eg: A BioChatter prototype module is in development to support natural language querying of Bioconductor packages via the bio.tools API, to be refined with additional use cases.)
+A [BioChatter prototype module](https://github.com/biocypher/biochatter/tree/biotools-API) is in development to support natural language querying via the bio.tools API, to be refined with additional use cases.
 
 ## Acknowledgements
 
