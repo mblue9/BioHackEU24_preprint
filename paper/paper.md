@@ -4,7 +4,7 @@ title_short: 'BioHackEU24 #27: Integrating Bioconductor with ELIXIR RSEc'
 tags:
   - bioinformatics
   - ontology
-  - xx
+  - biohackeu24
 authors:
   - name: Claire Rioualen
     orcid: "0000-0002-7684-8679"
