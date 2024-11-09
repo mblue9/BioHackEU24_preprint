@@ -91,11 +91,15 @@ This project focuses on mapping the biocViews taxonomy to EDAM terms, assessing 
 
 # Results
 
+As part of hackathon discussions, we determined that Bioconductor’s software packages are the primary candidates for integration with bio.tools. Bioconductor maintains four types of packages: software, annotation, experiment, and workflow packages. Since bio.tools is specifically intended for software, it does not support data-focused packages such as annotation and experiment packages. While workflow packages (currently only around 30) may be considered for future inclusion, they are not within the scope of this initial phase. This decision allows us to focus on software package integration, while laying the groundwork for potentially applying EDAM annotations across all four Bioconductor package types to improve metadata consistency and interoperability in the future.
+
 ## Mapping biocViews terms with EDAM
 
-We mapped biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews lacks a strict ontology structure and has a broader scope, creating challenges in specific concept mapping. This process revealed potential areas where EDAM could expand to better cover biocViews terms.
+We mapped biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews lacks a strict ontology structure and has a broader scope, creating challenges in specific concept mapping.
 
-Some initial mapping was done using the text2term Python package, with preliminary results [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). During the hackathon, the "biocViews mapping" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) was updated with detailed annotations in categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," and "not mapped and out of EDAM scope."
+In the course of our analysis, we found that Bioconductor’s 244 biocViews terms for software packages vary widely in their usage across packages. Specifically, 66 biocViews are only used by a single package, while the remaining 178 terms are applied to multiple packages. This distribution reveals both the broad diversity of terms and the potential for redundant or overly specific categorisations.
+
+Some initial mapping of the 244 biocViews terms was done using the text2term Python package, with preliminary results [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). During the hackathon, the "biocViews mapping" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) was updated with detailed annotations in categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," and "not mapped and out of EDAM scope."
 
 ## Clustering Bioconductor packages by biocViews
 
