@@ -9,39 +9,44 @@ authors:
   - name: Claire Rioualen
     orcid: "0000-0002-7684-8679"
     affiliation: 1
-  - name: Maria Doyle
-    orcid: "0000-0003-4847-8436"
-    affiliation: 2
-  - name: Hervé Ménager
-    orcid: "0000-0002-7552-1009"
-    affiliation: 1, 3
+  - name: Vincent J Carey
+    orcid: "0000-0003-4046-0063"
+    affiliation: 2   
   - name: Matúš Kalaš
     orcid: "0000-0002-1509-4981"
-    affiliation: 4
+    affiliation: 3
   - name: Sebastian Lobentanzer
     orcid: "0000-0003-3399-6695"
-    affiliation: 
+    affiliation: 4
+  - name: Hervé Ménager
+    orcid: "0000-0002-7552-1009"
+    affiliation: 1, 5
   - name: Egon Willighagen
     orcid: 0000-0001-7542-0286
     affiliation: 6
   - name: firstName lastName
     orcid: "0000-0000-0000-0000"
-    affiliation: 5
+    affiliation: 7
+  - name: Maria A Doyle
+    orcid: "0000-0003-4847-8436"
+    affiliation: n  
 affiliations:
   - name: IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE, CEA, 91057 Evry, France
     index: 1
-  - name: Limerick Digital Cancer Research Centre, Health Research Institute, School of Medicine, University of Limerick, V94 T9PX, Ireland
+  - name: Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA
     index: 2
-  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France
-    index: 3
   - name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
-    index: 4
+    index: 3
   - name: Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany
+    index: 4
+  - name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France
     index: 5
-  - name: xxx
-    index: 6
   - name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, Netherlands
+    index: 6
+  - name: xxx
     index: 7
+  - name: Limerick Digital Cancer Research Centre, Health Research Institute, School of Medicine, University of Limerick, V94 T9PX, Ireland
+    index: n
 date: 8 November 2024
 cito-bibliography: paper.bib
 event: BH24EU
