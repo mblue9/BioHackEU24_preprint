@@ -140,6 +140,8 @@ Establish guidelines for the annotation of Bioconductor packages in bio.tools...
 
 ## Acknowledgements
 
+This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d'Investissements d'Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This work was supported in part by NHGRI U24HG004059 "Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics". This project has been made possible in part by grants 2024-XXX (TODO: Add Vince's CZI EOSS6 grant id), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. 
+
 ...
 
 ## References
