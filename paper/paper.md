@@ -159,7 +159,21 @@ A roadmap is planned through 2026, outlining regular online meetings and milesto
 
 # Links to software
 
-(e.g., GitHub or Jupyter Notebooks) and data repositories created or developed during the event)
+This project involved several tools, repositories, and data resources developed or used to integrate Bioconductor packages with the ELIXIR Research Software Ecosystem.
+
+The biocEDAM repository on GitHub served as the main repository for EDAM term mapping and the development of the `edamize()` function, designed to automate EDAM annotations. 
+Bioconductor metadata imports for RSEc, managed in another GitHub repository, enabled automatic weekly updates of Bioconductor package information within the ELIXIR Research Software Ecosystem.
+
+The terms and package curation tables, available as a Google Sheet, contains the curated package list with EDAM term annotations and other metadata.
+
+In early development, the BioChatter prototype module is a tool for querying Bioconductor packages via the bio.tools API using natural language. The module will be refined based on additional user cases.  
+
+Links:
+
+- [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM)
+- [Bioconductor imports for ELIXIR RSEc on GitHub](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor)
+- [Terms and package curation spreadsheet](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)
+- (TODO: Add link for BioChatter code if available)
 
 ...
 
