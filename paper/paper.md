@@ -63,39 +63,35 @@ authors_short: Claire Rioualen \emph{et al.}
 
 # Abstract
 
-This project seeks to enhance the ELIXIR Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, this project will significantly improve the search, discovery, and usability of genomic data analysis tools within the R environment. The short-term goals involve mapping EDAM terms to Bioconductor’s biocViews taxonomy, developing a gold standard of manually annotated packages, and assessing tools for automated EDAM term suggestions. Long-term, we aim to expand EDAM coverage to the full Bioconductor ecosystem, phase out biocViews, and implement an automated synchronisation mechanism with the bio.tools registry. This initiative also fosters a collaborative pathway between the Bioconductor and ELIXIR communities, promoting sustainable and scalable software management within the European bioinformatics infrastructure.
-
-TODO: Summarize key results, including outcomes from EDAM term mapping, curation insights, and future directions.
+This project seeks to enhance the ELIXIR Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, we aim to improve the discoverability and usability of genomic analysis tools. Short-term goals include mapping EDAM terms to Bioconductor’s biocViews taxonomy, developing a set of manually annotated “gold standard” packages, and evaluating tools for automated EDAM term suggestions. Long-term, we intend to expand EDAM coverage across Bioconductor, phase out biocViews, and implement automated synchronisation with bio.tools. This initiative fosters collaboration between Bioconductor and ELIXIR, establishing a foundation for sustainable software management in European bioinformatics. Key results include substantial progress in mapping EDAM terms to Bioconductor’s biocViews taxonomy, initiating the curation of a reference set of packages with manual annotations, integrating Bioconductor metadata into the ELIXIR Research Software Ecosystem (RSEc) with automated updates, and prototyping a tool for automated EDAM term suggestions. Together, these achievements establish a strong foundation for further integration and refinement.
 
 # Introduction
 
-[Bioconductor](https://bioconductor.org/) is a globally recognized open-source project that provides over 2,000 packages for high-throughput genomic data analysis within the R programming environment. These tools support a vast range of bioinformatics applications, from differential gene expression analysis to visualization and data integration, making Bioconductor a critical resource for life sciences research. However, with the expansion of bioinformatics resources, there is a growing need for improved methods to locate and apply appropriate tools, particularly in complex data workflows.
+[Bioconductor](https://bioconductor.org/) is a globally recognized open-source project that provides over 2,000 packages for high-throughput genomic data analysis within the R programming environment. Supporting a vast range of bioinformatics applications, these tools are widely used for gene expression analysis, visualization, and data integration, making Bioconductor a critical resource for life sciences research. However, the expanding bioinformatics landscape calls for enhanced methods to locate and apply appropriate tools, especially in complex workflows.
 
-The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosystem.github.io/) supports the FAIR principles—Findability, Accessibility, Interoperability, and Reusability—and offers a structured approach to organizing bioinformatics tools through the bio.tools registry and the EDAM ontology. By aligning Bioconductor packages with these standards, we aim to enhance the discoverability and usability of these resources within the broader bioinformatics community.
+The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosystem.github.io/) promotes the FAIR principles—Findability, Accessibility, Interoperability, and Reusability—and uses bio.tools and the EDAM ontology to organise bioinformatics tools. Aligning Bioconductor packages with these standards aims to enhance tool discoverability within the broader bioinformatics community.
 
-This project focuses on mapping the biocViews taxonomy to EDAM terms, curating a subset of Bioconductor packages with manual annotations, and establishing pathways for automated synchronisation between Bioconductor and bio.tools. In addition to advancing the EDAM standard, this project will lay the groundwork for sustainable collaboration between the Bioconductor and ELIXIR communities. Through structured integration and community-driven development, this initiative represents a foundational step toward a cohesive and accessible bioinformatics ecosystem.
+This project focuses on mapping the biocViews taxonomy to EDAM terms, curating a subset of Bioconductor packages with manual annotations, and establishing pathways for automated synchronisation between Bioconductor and bio.tools. Beyond advancing the EDAM standard, this initiative builds a collaborative bridge between Bioconductor and ELIXIR. Through structured integration and community-driven development, this project represents a foundational step toward an accessible, interoperable bioinformatics ecosystem.
 
 # Results
 
 ## Mapping biocViews terms with EDAM
 
-Our work focused on mapping biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews is not structured as an ontology and has a broader, less standardized scope, which presents challenges in mapping specific concepts. This process revealed areas where EDAM could be extended or refined to better represent the domain covered by biocViews.
+We mapped biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews lacks a strict ontology structure and has a broader scope, creating challenges in specific concept mapping. This process revealed potential areas where EDAM could expand to better cover biocViews terms.
 
-Some pre-hackathon groundwork on biocViews-to-EDAM mapping was performed using the `text2term` Python package, with preliminary results available [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). Building on this effort during the hackathon, the "biocViews mapping"" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) now contains detailed annotations. The “mapping” column includes ongoing manual reviews with categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," "not mapped and no equivalent in EDAM," and "not mapped and out of EDAM scope."
+Some initial mapping was done using the text2term Python package, with preliminary results [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). During the hackathon, the "biocViews mapping" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) was updated with detailed annotations in categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," and "not mapped and out of EDAM scope."
 
 ## Clustering Bioconductor packages by biocViews
 
-A clustering analysis was performed on Bioconductor packages based on their biocViews annotations to explore how they currently group. This analysis provides insights into existing thematic clusters within Bioconductor, highlighting similarities across packages and identifying areas where biocViews could be refined or extended for clearer categorization. The results of this clustering can also guide future EDAM term mappings to ensure alignment with these groupings and enhance package discoverability.
+We conducted clustering analysis on Bioconductor packages based on their biocViews annotations to explore natural groupings and thematic clusters. This analysis highlighted similarities across packages and can be used to pinpoint areas where biocViews could be refined for improved categorisation. Results may guide EDAM term mappings to align with package clusters and boost discoverability.
 
 TODO: Add info from Aurelien and Ben.
 
 ## Defining a reference set of packages
 
-We created an initial reference set of Bioconductor packages, accessible in the “Package list” sheet ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1269194852#gid=1269194852)). This includes well-known, heavily downloaded packages, as well as those suggested by project contributors and developers. The “Package curation” table ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)) was developed for annotating these packages with EDAM terms, to improve discoverability and integration with bio.tools. Contributors are encouraged to help populate the “should they be in bio.tools?” column and further refine the annotations.
+We created a reference set of 37 Bioconductor packages, accessible in the “Package list” sheet  ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1269194852#gid=1269194852)), featuring well-known, heavily downloaded packages, as well as those suggested by project contributors and developers. This set serves as a basis for the  embedding-based analyses (described below), and the curation started in The “Package curation” table ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)).
 
-A total of 37 packages were identified for this reference set during the BioHackathon, forming the basis for the curation and embedding-based analyses detailed below.
-
-Several package developers also reviewed and updated EDAM annotations in bio.tools for their packages, providing curated examples for future work, including:
+Some package developers reviewed and updated EDAM annotations in bio.tools for their packages, providing curated examples for future work, such as:
 
 -   [xcms](https://bio.tools/xcms)
 -   [BridgeDbR](https://bio.tools/bridgedbr)
@@ -103,7 +99,7 @@ Several package developers also reviewed and updated EDAM annotations in bio.too
 
 ## Integrate Bioconductor packages with ELIXIR RSEc
 
-We have now incorporated Bioconductor metadata into the ELIXIR Research Software Ecosystem (RSEc) framework , with automatic weekly updates to facilitate ease of maintenance and integration. See [details here](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
+Bioconductor metadata now integrates with the ELIXIR Research Software Ecosystem (RSEc), with weekly automated updates. Details are [here](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
 
 On the other hand, we discussed how EDAM annotations might find their way into R / Bioconductor packages as first class citizens. 
 This could be as simple as having custom fields in `DESCRIPTION` with one or more EDAM topics. 
@@ -116,14 +112,14 @@ similar to how `DESCRIPTION`, `NAMESPACE` and the manpages can be generated alre
 
 ## Automating EDAM annotation for Bioconductor packages
 
-Prototyping is underway for a tool to automatically suggest EDAM terms based on Bioconductor package content. with initial explorations documented in [this vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html). Following these explorations, a need was identified to refactor the Python code in [biocEDAM/inst/curbioc](https://github.com/vjcitn/biocEDAM/blob/main/inst/curbioc/curbioc.py) to streamline and modularize functionality, leading to the development of the `edamize()` function. Demonstrated on an [MSnbase vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html#example-3-msnbase), `edamize()` marks an important step toward automating EDAM annotations, though it currently lacks robustness and requires further refinement.
+Prototype development is underway for a tool to suggest EDAM terms based on Bioconductor package content. Initial work is documented in [this vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html). The tool's Python code in [biocEDAM/inst/curbioc](https://github.com/vjcitn/biocEDAM/blob/main/inst/curbioc/curbioc.py) is being refactored, with a new `edamize()` function designed to improve automation of EDAM annotations, demonstrated on an [MSnbase vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html#example-3-msnbase).
 
 An additional approach explored embedding Bioconductor package vignettes into a vector space, using OpenAI’s text-embedding-3-large model and visualizing the results through PCA. Using the reference set of 37 packages identified during the BioHackathon (detailed in the Defining a reference set of packages section), we observed some thematic clustering, revealing similarities across package descriptions that could assist with EDAM term suggestions. Embedding clusters could eventually be customized by EDAM’s top-level categories (e.g., "purpose," "inputs," "outputs"), further supporting user workflows in annotating packages with EDAM terms. This embedding-based approach, while in its early stages, shows potential for aiding both package authors and curators.
 
 ![Figure X: PCA of Bioconductor package embeddings from the curated reference set. Vignettes were embedded using OpenAI's text-embedding-3-large model, with each point representing a vignette. Packages with multiple vignettes appear multiple times. Observed clustering patterns may guide future categorization by top-level EDAM categories (e.g., "purpose," "inputs," "outputs") to support improved EDAM term suggestions.](figures/embeddings_PCA.png)  
 
 
-To streamline EDAM annotations further, a potential enhancement was proposed (discussed above in the RSEc integration section): adding a [custom field in the DESCRIPTION file](https://r-pkgs.org/description.html#sec-description-custom-fields) for Bioconductor packages, allowing for EDAM terms (e.g., topics, operations, data types) to be recorded directly within the package metadata. Additionally, the [creation of a roclet](https://roxygen2.r-lib.org/articles/extending.html#creating-a-new-roclet) would enable developers to annotate packages with these EDAM terms directly in their code, using the Roxygen tool they already use for documentation. This approach would generate a structured metadata file similar to the operations graph in [bio.tools for xcms](https://bio.tools/xcms), allowing Bioconductor packages to be more precisely described for integration into bio.tools and enhancing discoverability within the ELIXIR ecosystem.
+To record EDAM terms directly in Bioconductor packages, a potential enhancement was proposed (discussed above in the RSEc integration section): adding a [custom field in the DESCRIPTION file](https://r-pkgs.org/description.html#sec-description-custom-fields) for Bioconductor packages, allowing for EDAM terms (e.g., topics, operations, data types) to be recorded directly within the package metadata. Additionally, the [creation of a roclet](https://roxygen2.r-lib.org/articles/extending.html#creating-a-new-roclet) would enable developers to annotate packages with these EDAM terms directly in their code, using the Roxygen tool they already use for documentation. This approach would generate a structured metadata file similar to the operations graph in [bio.tools for xcms](https://bio.tools/xcms), allowing Bioconductor packages to be more precisely described for integration into bio.tools and enhancing discoverability within the ELIXIR ecosystem.
 
 ## Enhancing user querying of tools
 
@@ -133,49 +129,27 @@ To advance BioChatter, we are seeking specific user questions and expected outco
 
 # Discussion
 
-The integration of Bioconductor packages within the ELIXIR Research Software Ecosystem has highlighted both the potential and the complexities involved in aligning metadata across bioinformatics platforms. The initial mapping of Bioconductor’s biocViews taxonomy to the EDAM ontology represents a promising step toward enhancing the interoperability and discoverability of Bioconductor tools. However, structural differences between biocViews and EDAM require further manual review to ensure accuracy and relevance, and this refinement process is ongoing.
-
-The embedding-based approach for EDAM term suggestion shows potential for automating annotations by identifying clusters within package descriptions, which may align with EDAM categories. This tool remains in its prototype stage, with additional work needed to improve accuracy and expand its usability across packages. 
-
-Additionally, we explored strategies for embedding EDAM annotations directly within Bioconductor packages through custom fields in the DESCRIPTION file or dedicated annotation files with Roxygen2 support and custom roclet. These methods could make EDAM terms an integral part of Bioconductor package metadata, simplifying alignment with bio.tools.
-
-The BioChatter module, initiated as a prototype during this project, offers a concept for querying bio.tools data in natural language. It requires further development, guided by well-defined user cases, to ensure it meets the needs of the bioinformatics community effectively.
+This project has highlighted both the potential and complexities of aligning Bioconductor with the ELIXIR ecosystem. Mapping biocViews to EDAM offers a promising foundation for metadata standardisation, though manual review remains essential due to structural differences. The prototype for EDAM term suggestions and the embedding-based clustering provide a basis for further automation, while new annotation strategies for Bioconductor packages could simplify metadata integration. Our work with BioChatter shows promise for natural language queries of bio.tools data, pending further development based on user cases.
 
 # Conclusions
 
-This project represents an important foundational effort toward integrating Bioconductor within the ELIXIR Research Software Ecosystem. Progress in mapping biocViews to EDAM and developing prototype tools for automated EDAM term suggestion have established the groundwork for enhancing metadata interoperability. Future work will involve finalising and refining the EDAM mappings, advancing the automated annotation tool, and exploring sustainable annotation practices.
-
-These next steps will contribute to a more cohesive bioinformatics ecosystem, ensuring that Bioconductor resources are both accessible and interoperable within ELIXIR’s infrastructure.
+Our integration of Bioconductor with the ELIXIR Research Software Ecosystem marks a foundational step toward enhanced discoverability and interoperability of bioinformatics tools. Mapping biocViews to EDAM, developing annotation prototypes, and exploring sustainable metadata practices have laid the groundwork for a cohesive bioinformatics ecosystem. Continued refinement and automation efforts will ensure Bioconductor resources are accessible and interoperable within ELIXIR’s infrastructure.
 
 # Future work
 
-To continue advancing the integration of Bioconductor within the ELIXIR Research Software Ecosystem, several key initiatives are planned. First, we aim to establish synchronization between Bioconductor and bio.tools by automating the transfer of Bioconductor package metadata from RSEc into bio.tools, ensuring that updates are propagated regularly.
-
-In the long term, authors could be given the option to enhance their tool’s profile directly in bio.tools, adding specific details or context beyond standard Bioconductor annotations. This approach allows Bioconductor’s metadata to serve as a reliable baseline in bio.tools while enabling authors to enhance the description of their tool for the wider bioinformatics community.
-
-The EDAM term mapping will also be refined for the reference set and extended to cover the entire Bioconductor ecosystem, improving coverage and consistency for a broad range of bioinformatics applications. We plan to also refine the automated tool for suggesting EDAM terms based on package content, building on the embedding-based prototype. This tool could help package authors and curators efficiently annotate software by analyzing key content features.
-
-A roadmap is planned through 2026, outlining regular online meetings and milestones to guide these developments and ensure ongoing collaboration with both Bioconductor and ELIXIR communities.
+Plans include automating Bioconductor metadata synchronisation with bio.tools, refining EDAM mappings across Bioconductor, and further developing our EDAM term suggestion prototype with improved term accuracy through embedding-based clustering. Additionally, we aim to enable Bioconductor package authors to enhance their package profiles directly in bio.tools, enriching metadata for the broader bioinformatics community. A roadmap through 2026 will guide these developments, ensuring ongoing collaboration with Bioconductor and ELIXIR communities.
 
 # Links to software
 
-This project involved several tools, repositories, and data resources developed or used to integrate Bioconductor packages with the ELIXIR Research Software Ecosystem.
+This project utilised multiple resources to support the integration of Bioconductor packages within the ELIXIR Research Software Ecosystem.
 
-The biocEDAM repository on GitHub served as the main repository for EDAM term mapping and the development of the `edamize()` function, designed to automate EDAM annotations. 
-Bioconductor metadata imports for RSEc, managed in another GitHub repository, enabled automatic weekly updates of Bioconductor package information within the ELIXIR Research Software Ecosystem.
+The [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM) served as the primary workspace for EDAM term mapping and developing the `edamize()` function for automated annotations.
 
-The terms and package curation tables, available as a Google Sheet, contains the curated package list with EDAM term annotations and other metadata.
+Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub repository](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
 
-In early development, the BioChatter prototype module is a tool for querying Bioconductor packages via the bio.tools API using natural language. The module will be refined based on additional user cases.  
+The [Google Sheet of packages and terms ](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148) contains the curated reference package list, along with ongoing EDAM annotations and metadata. It also includes the results of manual reviews of automated biocViews-EDAM mappings, assessing the accuracy and relevance of each mapping.
 
-Links:
-
-- [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM)
-- [Bioconductor imports for ELIXIR RSEc on GitHub](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor)
-- [Terms and package curation spreadsheet](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)
-- (TODO: Add link for BioChatter code if available)
-
-...
+(TODO: Add link for BioChatter bio.tools code if available, and some text eg: A BioChatter prototype module is in development to support natural language querying of Bioconductor packages via the bio.tools API, to be refined with additional use cases.)
 
 ## Acknowledgements
 
