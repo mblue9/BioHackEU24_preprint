@@ -97,7 +97,9 @@ As part of hackathon discussions, we determined that Bioconductor’s software p
 
 We mapped biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews lacks a strict ontology structure and has a broader scope, creating challenges in specific concept mapping.
 
-In the course of our analysis, we found that Bioconductor’s 244 biocViews terms for software packages vary widely in their usage across packages. Specifically, 66 biocViews are only used by a single package, while the remaining 178 terms are applied to multiple packages. This distribution reveals both the broad diversity of terms and the potential for redundant or overly specific categorisations.
+In the course of our analysis, we found that Bioconductor’s 244 biocViews terms for software packages vary widely in their usage across packages (see Supplementary Table 1). Specifically, 66 biocViews are only used by a single package, while the remaining 178 terms are applied to multiple packages. This distribution reveals both the broad diversity of terms and the potential for redundant or overly specific categorisations.
+
+Across Bioconductor software packages, the number of associated biocViews terms also varies significantly (see Supplementary Table 2). Packages have between 1 and 45 biocViews terms (median = 8), with an average of 9 terms per package. The most common number of terms per package is 7, demonstrating a wide range (44 terms) in how packages are categorised.
 
 Some initial mapping of the 244 biocViews terms was done using the text2term Python package, with preliminary results [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). During the hackathon, the "biocViews mapping" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) was updated with detailed annotations in categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," and "not mapped and out of EDAM scope."
 
