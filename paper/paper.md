@@ -154,11 +154,13 @@ This project has highlighted both the potential and complexities of aligning Bio
 
 # Conclusions
 
-Our integration of Bioconductor with the ELIXIR Research Software Ecosystem marks a foundational step toward enhanced discoverability and interoperability of bioinformatics tools. Mapping biocViews to EDAM, developing annotation prototypes, and exploring sustainable metadata practices have laid the groundwork for a cohesive bioinformatics ecosystem. Continued refinement and automation efforts will ensure Bioconductor resources are accessible and interoperable within ELIXIR’s infrastructure.
+Our integration of Bioconductor with the ELIXIR Research Software Ecosystem through this work contributes to ongoing efforts toward enhanced discoverability and interoperability of bioinformatics tools. Mapping biocViews to EDAM, developing annotation prototypes, and exploring sustainable metadata practices have laid the groundwork for a cohesive bioinformatics ecosystem. Continued refinement and automation efforts will ensure Bioconductor resources are accessible and interoperable within ELIXIR’s infrastructure.
 
 # Future work
 
 Plans include automating Bioconductor metadata synchronisation with bio.tools, refining EDAM mappings across Bioconductor, and further developing our EDAM term suggestion prototype with improved term accuracy through embedding-based clustering. Additionally, we aim to enable Bioconductor package authors to enhance their package profiles directly in bio.tools, enriching metadata for the broader bioinformatics community. A roadmap through 2026 will guide these developments, ensuring ongoing collaboration with Bioconductor and ELIXIR communities.
+
+We welcome anyone interested to join our [Bioconductor Slack](https://slack.bioconductor.org/) #edam-collaboration channel or visit our [working group page](https://workinggroups.bioconductor.org/currently-active-working-groups-committees.html#edam-collaboration). Participation is flexible—members are encouraged to follow updates, drop into discussions, or join our meetings as often or as little as they’d like.
 
 # Links to software
 
