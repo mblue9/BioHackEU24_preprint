@@ -22,8 +22,10 @@ affiliations:
 - name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht,
     Netherlands
   index: 6
-- name: xxx
+- name: Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany
   index: 7
+- name: xxx
+  index: 8
 - name: Limerick Digital Cancer Research Centre, Health Research Institute, School
     of Medicine, University of Limerick, V94 T9PX, Ireland
   index: false
@@ -55,12 +57,15 @@ authors:
 - name: Hervé Ménager
   orcid: "0000-0002-7552-1009"
   affiliation: 1, 5
+- name: Steffen Neumann
+  orcid: "0000-0002-7899-7192"
+  affiliation: 7  
 - name: Egon Willighagen
   orcid: "0000-0001-7542-0286"
   affiliation: 6
 - name: firstName lastName
   orcid: "0000-0000-0000-0000"
-  affiliation: 7
+  affiliation: 8
 - name: Maria A Doyle
   orcid: "0000-0003-4847-8436"
   affiliation: false
