@@ -71,7 +71,9 @@ authors:
   affiliation: false
 ---
 
-# Abstract
+# !! DON'T EDIT BELOW, EDIT CURRENT VERSION HERE: https://docs.google.com/document/d/1BZYPlJ1VmVz7i7agjr0PlYxx9ROVPob6/edit
+
+## Abstract
 
 This project seeks to enhance the ELIXIR Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, we aim to improve the discoverability and usability of bioinformatics analysis tools. Short-term goals include mapping EDAM terms to Bioconductor’s biocViews taxonomy, developing a set of manually annotated “gold standard” packages, and evaluating tools for automated EDAM term suggestions. Long-term, we intend to expand EDAM coverage across Bioconductor, phase out biocViews, and implement automated synchronisation with bio.tools. This initiative fosters collaboration between Bioconductor and ELIXIR, establishing a foundation for sustainable software management in European bioinformatics. 
 
