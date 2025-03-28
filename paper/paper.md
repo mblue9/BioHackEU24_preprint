@@ -176,7 +176,7 @@ We mapped all of the vocabulary considered above against the EDAM ontology using
 After curation, the mapped vocabulary was divided into the following 5 categories:
 
 * Good: a perfect match or very close match with an EDAM term \vspace{-5mm}
-* Partial: a good enough match with an EDAM term \vspace{-5mm}
+* Partial: a good enough match with an EDAM term \vspace
 * Term suggestion: there is no good match, but curation suggests another existing EDAM term \vspace{-5mm} 
 * Term missing: there is no good match, and there is no adequate term available currently in EDAM  \vspace{-5mm}
 * Out of scope:  there is no good match, and the term is not in the scope of EDAM  
