@@ -120,60 +120,111 @@ Beyond advancing the EDAM standard, this initiative builds a collaborative bridg
 
 # Results
 
-As part of hackathon discussions, we determined that Bioconductor’s software packages are the primary candidates for integration with bio.tools. Bioconductor maintains four types of packages: software, annotation, experiment, and workflow packages. Since bio.tools is specifically intended for software, it does not support data-focused packages such as annotation and experiment packages. While workflow packages (currently only around 30) may be considered for future inclusion, they are not within the scope of this initial phase. This decision allows us to focus on software package integration, while laying the groundwork for potentially applying EDAM annotations across all four Bioconductor package types to improve metadata consistency and interoperability in the future.
+
+## Overview of the BioHackathon results
+
+One of the main goals of the work initiated here is to synchronize the Bioconductor ecosystem with the ELIXIR Research Software Ecosystem, so that all relevant information regarding resources maintained in Bioconductor are automatically updated on the schedule of Bioconductor's six-month release cadence. 
+
+Bioconductor itself maintains four types of packages in the following domains: 
+
+* software for preprocessing and analysis,   
+* annotation related to genome and organism structure and function,   
+* curated experiments, and   
+* workflow demonstration. 
+
+The terms "Software", "Annotation", "Experiment", and "Workflow" are children of the root node of the biocViews vocabulary.
+
+Since bio.tools is specifically intended for software, it does not support data-focused packages such as annotation and experiment packages. While workflow packages (currently only around 30\) may be considered for future inclusion in the RSEc, they are not within the scope of this initial phase, and only "software" tagged packages are therefore currently considered for synchronisation. This decision allows us to focus on software package integration, while laying the groundwork for potentially applying EDAM annotations across all four Bioconductor package types to improve metadata consistency and interoperability in the future.
+
+Key results from the BioHackathon include (1) mapping the biocViews vocabulary with the EDAM ontology, identifying gaps in the ontology and suggesting new terms; (2) defining a set of reference software packages from Bioconductor and manually annotating them, in order to provide a “gold-standard” to evaluate automated annotations; (3) investigate/develop large language model-based tools to automate the annotations; (4) synchronising Bioconductor software packages with the ELIXIR Research Software Ecosystem and (5) developing a BioChatter module to leverage the bio.tools API, enabling users to query Bioconductor package information more intuitively. 
 
 ## Mapping biocViews terms with EDAM
 
-We mapped biocViews terms to the EDAM ontology, identifying gaps and inconsistencies between the two vocabularies. Unlike EDAM, biocViews lacks a strict ontology structure and has a broader scope, creating challenges in specific concept mapping.
+The first step for the shifting from biocViews annotations to EDAM annotations consists in mapping the existing vocabulary with the ontology, and identifying potential gaps to be filled in the future. 
 
-In the course of our analysis, we found that Bioconductor’s 244 biocViews terms for software packages vary widely in their usage across packages (see Supplementary Table 1). Specifically, 66 biocViews are used by only a single package, while the remaining 178 terms are applied to multiple packages. This distribution reveals both the diversity of terms and the potential for redundancy or overly specific categorisations.
+**Exploration of software package annotations.** Bioconductor uses the biocViews vocabulary for package annotations. Leaving aside annotation, experiment, and workflow packages, there is a collection of 2,289 software packages to synchronise with the RSEc. Overall, those packages are annotated using 235 different terms, with high disparities in their respective usage (Figure 3a,c). Besides, the number of annotations per package also varies widely (Figure 3b). 
 
-Across Bioconductor software packages, the number of associated biocViews terms also varies widely (see Supplementary Table 2), ranging from 1 to 45 terms per package, with a median of 8 terms. This variation underscores the diversity in package categorisation.
+`# get software annotations [R]`  
+`annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%`  
+  `unnest(biocViews))$biocViews)`
 
-Some initial mapping of the 244 biocViews terms was done using the text2term Python package, with preliminary results [here](https://vjcitn.github.io/biocEDAM/articles/biocEDAM.html#a-preliminary-comparison-of-the-vocabularies). During the hackathon, the "biocViews mapping" sheet ([linked here](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1016157783#gid=1016157783)) was updated with detailed annotations in categories such as "mapped and relevant," "mapped but not relevant," "not mapped but mappable to EDAM term," and "not mapped and out of EDAM scope."
+`# make some manual corrections after identifying a few bugs [R]`  
+`annotated_terms <- annotated_terms[!annotated_terms %in% c("Scale\nsimulation","Genetics\nCellBiology", "Differential Polyadenylation\nSite Usage", "3' end sequencing", "", NA)]`  
+`annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polyadenylation", "Site Usage", "3p end sequencing")`
 
-## Clustering Bioconductor packages by biocViews
+**Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
 
-We conducted clustering analysis on Bioconductor packages based on their biocViews annotations to explore natural groupings and thematic clusters. This analysis highlighted similarities across packages and can be used to pinpoint areas where biocViews could be refined for improved categorisation. Results may guide EDAM term mappings to align with package clusters and boost discoverability.
+`# get biocViews vocabulary [R]`  
+`data(biocViewsVocab)`  
+`biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what = "edges")`  
+`biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))`
 
-TODO: Add info from Aurelien and Ben.
+`# get biocViews software vocabulary [R]`  
+`reposPath <- system.file("doc", package="biocViews")`  
+`reposUrl <- paste("file://", reposPath, sep="")`   
+`biocViews_soft <- names(getBiocSubViews(reposUrl, biocViewsVocab, topTerm="Software"))`
+
+**Mapping results**
+
+We mapped all of the vocabulary considered above against the EDAM ontology using the [text2term](https://github.com/rsgoncalves/text2term) Python library. This library proposes a variety of scoring methods based on string similarity, which may underestimate the actual relevance of a mapped term, or not output a satisfying match when an actually relevant but different term is available in EDAM. Hence, though it provides a good basis for the “translation” of Bioconductor packages annotations into EDAM terms, it requires significant manual curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Mapping\_curated” tab \- color code follows Figure 4). 
+
+After curation, the mapped vocabulary was divided into the following 5 categories:
+
+* Good: a perfect match or very close match with an EDAM term   
+* Partial: a good enough match with an EDAM term   
+* Term suggestion: there is no good match, but curation suggests another existing EDAM term  
+* Term missing: there is no good match, and there is no adequate term available currently in EDAM  
+* Out of scope:  there is no good match, and the term is not in the scope of EDAM  
+
+While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Fig 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Fig 4, Fig 5b-c).
+
+A list of 29 terms deemed as missing from EDAM was proposed from the 31 curated terms missing a match (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Missing\_terms” tab \- color code follows Figure 4). Among those, a few terms are related to high-throughput technologies and should be considered for addition; a few terms are related to microarray technologies, which triggers questions about their relevance nowadays; a few terms are currently part of a separate, non-released extension of the EDAM ontology;  and 3 terms were once part of EDAM before being made deprecated concepts, and could be reinstated. 
+
+`# save list of all above terms to file [R]`  
+`write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)), file = "bioc_all_terms_used.tsv", quote = F, col.names = F, row.names = F, sep = "\t")`
+
+`# map all terms with EDAM using text2term [python]`  
+`edam_dev_owl="https://raw.githubusercontent.com/edamontology/edamontology/refs/heads/main/EDAM_dev.owl"`  
+`text2term.map_terms(source_terms="bioc_all_terms_used.tsv", target_ontology=edam_dev_owl, min_score=0, save_mappings=True, output_file="mapping_tests_claire/bioc_all_terms_used_mapped.csv", term_type="class", incl_unmapped = True)`
 
 ## Defining a reference set of packages
 
-We created a reference set of 37 Bioconductor packages, accessible in the “Package list” sheet  ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1269194852#gid=1269194852)), featuring well-known, heavily downloaded packages, as well as those suggested by project contributors and developers. This set serves as a basis for the  embedding-based analyses (described below), and the curation started in The “Package curation” table ([link](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148)).
+While the translation of the biocViews vocabulary to an EDAM vocabulary is a first step towards the standardisation of Bioconductor software packages metadata, we could go further and take full advantage of the terminology available in EDAM, including topics, operations, formats and data types. This is particularly relevant for their synchronisation with the bio.tools catalogue, and their potential future integration in platforms such as the [WorkflowHub](https://workflowhub.eu/) or the [Galaxy](https://galaxyproject.org/) project. 
 
-Some package developers reviewed and updated EDAM annotations in bio.tools for their packages, providing curated examples for future work, such as:
+Since doing so manually would require a significant amount of time and expertise, we want to explore semi-automated AI-based methods. For this purpose, we decided to create a small list of packages to be curated manually, with two main purposes: serve as a basis for  annotation guidelines, and provide a gold standard to use as a reference in order to evaluate automated annotation strategies. 
 
--   [xcms](https://bio.tools/xcms)
--   [BridgeDbR](https://bio.tools/bridgedbr)
--   [rWikiPathways](https://bio.tools/rwikipathways)
+We created a reference set of 37 Bioconductor packages (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Reference\_packages” tab), featuring well-known, heavily downloaded packages, as well as those suggested by project contributors and developers, covering a large variety of topics. We initiated their curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Package\_curation” tab) which  includes the extraction of existing annotations in bio.tools using the API, revising said annotations, and suggesting new annotations where needed. Some package developers reviewed and updated EDAM annotations in bio.tools for their packages, providing curated examples for future reference ([`xcms`](https://bio.tools/xcms), [`BridgeDbR`](https://bio.tools/bridgedbr), [`rWikiPathways`](https://bio.tools/rwikipathways)).
 
-## Integrate Bioconductor packages with ELIXIR RSEc
+## Automating EDAM annotations for Bioconductor packages
 
-Bioconductor metadata now integrates with the ELIXIR Research Software Ecosystem (RSEc), with weekly automated updates. Details are [here](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
+The biocEDAM package (in development in [github](https://vjcitn.github.io/biocEDAM)) includes functions that operate on content provided in Bioconductor packages to infer EDAM terms appropriate for indexing the package. Briefly, the URL of a PDF or HTML vignette is supplied to the function `vig2data`.  Facilities in the `pdftools` or `rvest` packages are used to extract text for analysis by GPT-4o. The analysis employs prompts defined in the `ellmer` package to produce data on vignette authorship, "topics" identified *ad libitum* by GPT-4o, and a textual summary, called "focus" of no more than 450 words. The "focus" result of `vig2data` is then passed to the `edamize` function, which employs further prompting in connection with data on the EDAM ontology provided in the form of JSON documents. The specific prompt is "Given content about a bioinformatics tool, represent it as a JSON object compliant with the provided schema". Results of this process applied to vignettes from 7 Bioconductor packages (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Automated\_annotation” tab).
 
-On the other hand, we discussed how EDAM annotations might find their way into R / Bioconductor packages as first class citizens. 
-This could be as simple as having custom fields in `DESCRIPTION` with one or more EDAM topics. 
-For information where the key:value schema of `DESCRIPTION` is insufficient, or to simply avoid bloating `DESCRIPTION`, it is possible to use a new, rich annotation file 
-similar to the `CITATION` for bibliographic information, although the use of ontology terms and relations would make JSON-LD or RDF related formats more suitable. 
-This new file could include information about operations and their input & output data and formats, similar to the information available from bio.tools. 
-Such a file could The format could be inspired by Bioschemas [ComputationalTool](https://bioschemas.org/profiles/ComputationalTool/).
-To improve the maintenance, Roxygen2 infrastructure and custom roclets could be used to collect the annotations directly from the R source code, 
-similar to how `DESCRIPTION`, `NAMESPACE` and the manpages can be generated already today. 
+The term-to-package assignments achieved through this process seem reasonable. Vignette summaries from two packages, `ChemmineOB` and `phyloseq`, could not be processed by `edamize`. Investigation of these failures is underway.
 
-## Automating EDAM annotation for Bioconductor packages
 
-Prototype development is underway for a tool to suggest EDAM terms based on Bioconductor package content. Initial work is documented in [this vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html). The tool's Python code in [biocEDAM/inst/curbioc](https://github.com/vjcitn/biocEDAM/blob/main/inst/curbioc/curbioc.py) is being refactored, with a new `edamize()` function designed to improve automation of EDAM annotations, demonstrated on an [MSnbase vignette](https://vjcitn.github.io/biocEDAM/articles/curate.html#example-3-msnbase).
+## Synchronising Bioconductor packages with the ELIXIR RSEc and bio.tools
 
-An additional approach explored embedding Bioconductor package vignettes into a vector space, using OpenAI’s text-embedding-3-large model and visualizing the results through PCA. Using the reference set of 37 packages identified during the BioHackathon (detailed in the Defining a reference set of packages section), we observed some thematic clustering, revealing similarities across package descriptions that could assist with EDAM term suggestions. Embedding clusters could eventually be customized by EDAM’s top-level categories (e.g., "purpose," "inputs," "outputs"), further supporting user workflows in annotating packages with EDAM terms. This embedding-based approach, while in its early stages, shows potential for aiding both package authors and curators.
+The synchronization between Bioconductor metadata and both bio.tools and the ELIXIR Research Software Ecosystem (RSEc) has been successfully established, with automated imports from Bioconductor to the RSEc now occurring on a weekly basis (see [https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor) for imported contents from Bioconductor, and [https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-import](https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-import) for the scripts that perform it).
 
-![PCA of Bioconductor package embeddings. PCA of Bioconductor package embeddings from the curated reference set. Vignettes were embedded using OpenAI's text-embedding-3-large model, with each point representing a vignette. Packages with multiple vignettes appear multiple times. Observed clustering patterns may guide future categorization by top-level EDAM categories (e.g., "purpose," "inputs," "outputs") to support improved EDAM term suggestions.](figures/embeddings_PCA.png)
+These metadata files consist of:
 
-To record EDAM terms directly in Bioconductor packages, a potential enhancement was proposed (discussed above in the RSEc integration section): adding a [custom field in the DESCRIPTION file](https://r-pkgs.org/description.html#sec-description-custom-fields) for Bioconductor packages, allowing for EDAM terms (e.g., topics, operations, data types) to be recorded directly within the package metadata. Additionally, the [creation of a roclet](https://roxygen2.r-lib.org/articles/extending.html#creating-a-new-roclet) would enable developers to annotate packages with these EDAM terms directly in their code, using the Roxygen tool they already use for documentation. This approach would generate a structured metadata file similar to the operations graph in [bio.tools for xcms](https://bio.tools/xcms), allowing Bioconductor packages to be more precisely described for integration into bio.tools and enhancing discoverability within the ELIXIR ecosystem.
+* JSON metadata retrieved from the Bioconductor package release API, available e.g. at [https://bioconductor.org/packages/json/3.20/bioc/packages.json](https://bioconductor.org/packages/json/3.20/bioc/packages.json).  
+* Citation information published in an HTML format on the Bioconductor website, e.g. at [https://www.bioconductor.org/packages/release/bioc/citations/DESeq2/citation.html](https://www.bioconductor.org/packages/release/bioc/citations/DESeq2/citation.html).
 
-## Enhancing user querying of tools
+Work is currently underway to automate the update of the bio.tools metadata from the Bioconductor metadata files (scripts that will perform this task are under development at [https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-to-biotools](https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-to-biotools)).
 
-A prototype of a [BioChatter](https://biochatter.org/) module was initiated to leverage the bio.tools API, enabling users to query Bioconductor package information more intuitively. The module interprets natural language questions, translates them into bio.tools API calls, and retrieves relevant package details based on EDAM terms and other metadata. This approach is intended to support complex, context-specific queries, enhancing users' ability to identify suitable Bioconductor tools for particular bioinformatics applications.
+The main challenges for this update are:
+
+* to avoid duplication of bio.tools entries for a given Bioconductor package. To reduce this risk, newly created entries in bio.tools will follow a naming convention based on bioconductor package names (i.e. bio.tools ids will be named `bioconductor-{bioconductor package name}`. Existing bioconductor entries, created before the setup of this mechanism, will be automatically detected (based on tool identifier/name or citation information, see figure 7), and retain their old bio.tools identifier.  
+* to guarantee that for all packages, metadata available from Bioconductor (e.g., current version, reference citation, etc.) are updated from this source, while information which is only available from bio.tools (e.g. EDAM annotations) is not overwritten. The workflow currently developed will therefore eventually, once the Bioconductor raw files have been imported from Bioconductor, either create new bio.tools entries, or for Bioconductor packages already existing in bio.tools, merge the metadata from Bioconductor and bio.tools. The full workflow as currently envisioned is illustrated in Figure 8\.
+
+Upon finalisation, package information regarding the 2289 Bioconductor packages will be available and automatically updated not only in the RSEc but also in bio.tools, representing \~7.5% of the current total bio.tools entries, with 1507 updated entries and 289 new entries (numbers upon publication of this report).
+
+## Enhancing user querying of tools with an AI-based conversational agent
+
+BioChatter is an open-source framework for the customisation of LLM-driven systems for applications in biomedical research (Lobentanzer et al., 2025). In addition to introducing transparency, flexibility, and open-source principles into the interaction with LLMs at a scientific level, one focus is on allowing tool use by LLMs by implementing dedicated modules that characterise the tool; for instance, by describing a web API, the programmatic use of this API can be facilitated via the LLM.
+
+A prototype of a [BioChatter](https://biochatter.org/) module was initiated to leverage the bio.tools API, enabling users to query Bioconductor package information more intuitively. The module interprets natural language questions, translates them into bio.tools API calls, and retrieves relevant package details based on EDAM terms and other metadata. This approach is intended to support complex, context-specific queries, enhancing users’ ability to identify suitable Bioconductor tools for particular bioinformatics applications.
 
 To advance BioChatter, we are seeking specific user questions and expected outcomes to develop well-defined use cases. These examples will guide the API’s natural language processing capabilities and refine responses, ensuring alignment with user needs.
 
