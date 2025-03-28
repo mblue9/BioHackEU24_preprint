@@ -20,6 +20,9 @@ affiliations:
 - name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
   ror: 00cfam450, 04qq88z54
   index: 6
+- name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
+  ror: 04qq88z54
+  index: 6
 - name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   index: 7
 - name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
