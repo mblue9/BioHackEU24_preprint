@@ -177,8 +177,8 @@ After curation, the mapped vocabulary was divided into the following 5 categorie
 
 * Good: a perfect match or very close match with an EDAM term \vspace{-5mm}
 * Partial: a good enough match with an EDAM term 
-* Term suggestion: there is no good match, but curation suggests another existing \newline EDAM term \vspace{-5mm} 
-* Term missing: there is no good match, and there is no adequate term available \newline currently in EDAM  \vspace{-5mm}
+* Term suggestion: there is no good match, but curation suggests another existing \newline EDAM term 
+* Term missing: there is no good match, and there is no adequate term available \newline currently in EDAM
 * Out of scope:  there is no good match, and the term is not in the scope of EDAM  
 
 While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Fig 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Fig 4, Fig 5b-c).
