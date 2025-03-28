@@ -5,30 +5,32 @@ title_short: 'BioHackEU24 #27: Integrating Bioconductor with ELIXIR RSEc'
 date: "28 March 2025"
 output: pdf_document
 affiliations:
-- name: "IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE,
-    CEA, 91057 Evry, France"
+- name: "Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France"
   index: 1
-- name: Channing Division of Network Medicine, Mass General Brigham, Harvard Medical
-    School, Boston MA, 02115 USA
+- name: "XXX"
   index: 2
-- name: ELIXIR Norway, and Department of Informatics, University of Bergen, Norway
+- name: "Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA"
   index: 3
-- name: Heidelberg University, Faculty of Medicine and Heidelberg University Hospital,
-    Institute for Computational Biomedicine, Heidelberg, Germany
+- name: "XXX"
   index: 4
-- name: Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics
-    Hub, 75015, Paris, France
+- name: "ELIXIR Norway, and Department of Informatics, University of Bergen, Norway"
   index: 5
-- name: Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht,
-    Netherlands
+- name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
   index: 6
-- name: Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany
+- name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   index: 7
-- name: xxx
+- name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
   index: 8
-- name: Limerick Digital Cancer Research Centre, Health Research Institute, School
-    of Medicine, University of Limerick, V94 T9PX, Ireland
-  index: false
+- name: "XXX"
+  index: 9
+- name: "XXX"
+  index: 10
+- name: "XXX"
+  index: 11
+- name: "Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, The Netherlands"
+  index: 12
+- name: "Limerick Digital Cancer Research Centre, School of Medicine, University of Limerick, V94 T9PX, Ireland"
+  index: 13
 tags:
 - bioinformatics
 - ontology
@@ -38,7 +40,7 @@ tags:
 - ELIXIR
 cito-bibliography: paper.bib
 event: BH24EU
-biohackathon_name: BioHackathon Europe 2024
+biohackathon_name: BioHackathon Europe, Barcelona, Spain, 2024
 biohackathon_url: "https://biohackathon-europe.org/"
 biohackathon_location: Barcelona, Spain, 2024
 group: Project 27
@@ -49,13 +51,11 @@ authors:
   orcid: "0000-0002-7684-8679"
   affiliation: 1
 - name: Aurélien Barre
-  orcid: "xx"
   affiliation: 2
 - name: Vincent J Carey
   orcid: "0000-0003-4046-0063"
   affiliation: 3
 - name: Benjamin Dartigues
-  orcid: "xx"
   affiliation: 4
 - name: Matúš Kalaš
   orcid: "0000-0002-1509-4981"
@@ -70,10 +70,8 @@ authors:
   orcid: "0000-0002-7899-7192"
   affiliation: 8  
 - name: Kozo Nishida
-  orcid: "xx"
   affiliation: 9
 - name: Veit Schwämmle 
-  orcid: ""
   affiliation: 10
 - name: Anh Nguyet Vu 
   orcid: "0000-0003-1488-6730"
@@ -85,8 +83,6 @@ authors:
   orcid: "0000-0003-4847-8436"
   affiliation: 13
 ---
-
-# BioHackEU24 report: Integrating Bioconductor packages with the ELIXIR Research Software Ecosystem using EDAM
 
 ## Abstract
 
