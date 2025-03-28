@@ -114,14 +114,13 @@ Beyond advancing the EDAM standard, this initiative builds a collaborative bridg
 
 # Results
 
-
 ## Overview of the BioHackathon results
 
 One of the main goals of the work initiated here is to synchronize the Bioconductor ecosystem with the ELIXIR Research Software Ecosystem, so that all relevant information regarding resources maintained in Bioconductor are automatically updated on the schedule of Bioconductor's six-month release cadence. 
 
 Bioconductor itself maintains four types of packages in the following domains: 
 
-* software for preprocessing and analysis   
+* software for preprocessing and analysis  \vspace{1.5cm} 
 * annotation related to genome and organism structure and function   
 * curated experiments   
 * workflow demonstration 
