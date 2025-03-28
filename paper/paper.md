@@ -228,31 +228,36 @@ A prototype of a [BioChatter](https://biochatter.org/) module was initiated to l
 
 To advance BioChatter, we are seeking specific user questions and expected outcomes to develop well-defined use cases. These examples will guide the API’s natural language processing capabilities and refine responses, ensuring alignment with user needs.
 
-# Discussion
+# Perspectives
 
-This project has highlighted both the potential and complexities of aligning Bioconductor with the ELIXIR ecosystem. Mapping biocViews to EDAM offers a promising foundation for metadata standardisation, though manual review remains essential due to structural differences. The prototype for EDAM term suggestions and the embedding-based clustering provide a basis for further automation, while new annotation strategies for Bioconductor packages could simplify metadata integration. Our work with BioChatter shows promise for natural language queries of bio.tools data, pending further development based on user cases.
+Further collaboration with the Bioconductor community will be necessary to enable the direct maintenance of bio.tools metadata from Bioconductor packages. This will require integrating EDAM-based annotations to describe the scientific functions of the packages, necessitating extensions to the build infrastructure. Several technical approaches are being evaluated. One option is to add [custom fields to the DESCRIPTION file](https://r-pkgs.org/description.html#sec-description-custom-fields) to accommodate one or more EDAM topics. Alternatively, a new annotation file, similar to the CITATION file for bibliographic information, could be used to avoid overloading the DESCRIPTION file or to include information that does not fit the key schema. Formats such as JSON-LD or RDF may be more suitable for this purpose due to their ability to handle ontology concepts and relations. This file could include information about operations and their input and output data and formats, similar to the data available from bio.tools. The format could be modeled after Bioschemas [ComputationalTool](https://bioschemas.org/profiles/ComputationalTool/). Additionally, to streamline maintenance, the Roxygen2 infrastructure and [custom roclets](https://roxygen2.r-lib.org/articles/extending.html#creating-a-new-roclet) could be employed to extract annotations directly from the R source code, similar to the current process for generating DESCRIPTION, NAMESPACE, and manpages.
 
-# Conclusions
+The automated mapping of biocViews to EDAM offers a promising approach to facilitate this annotation and further metadata standardisation in the scientific description of research software. However, manual review of this mapping will be necessary to address structural differences and gaps in EDAM, thereby ensuring optimal semantic coverage of the scientific capabilities.
+
+The entire corpus of bio.tools and RSEc will also benefit from the natural language querying capabilities provided by the BioChatter module, initiated during the Biohackathon, and pending further development. To enhance BioChatter, we will collect specific user questions and expected outcomes to develop well-defined use cases. These examples will guide the API’s natural language processing capabilities and refine responses, ensuring alignment with user needs.
+
+# Conclusion
 
 Our integration of Bioconductor with the ELIXIR Research Software Ecosystem through this work contributes to ongoing efforts toward enhanced discoverability and interoperability of bioinformatics tools. Mapping biocViews to EDAM, developing annotation prototypes, and exploring sustainable metadata practices have laid the groundwork for a cohesive bioinformatics ecosystem. Continued refinement and automation efforts will ensure Bioconductor resources are accessible and interoperable within ELIXIR’s infrastructure.
 
-# Future work
+## Community and contributions
 
-Plans include automating Bioconductor metadata synchronisation with bio.tools, refining EDAM mappings across Bioconductor, and further developing our EDAM term suggestion prototype with improved term accuracy through embedding-based clustering. Additionally, we aim to enable Bioconductor package authors to enhance their package profiles directly in bio.tools, enriching metadata for the broader bioinformatics community. A roadmap through 2026 will guide these developments, ensuring ongoing collaboration with Bioconductor and ELIXIR communities.
+A roadmap through 2026 will guide future developments of this project, ensuring ongoing collaboration with Bioconductor and ELIXIR communities.
 
-We welcome anyone interested to join our [Bioconductor Slack](https://slack.bioconductor.org/) #edam-collaboration channel or visit our [working group page](https://workinggroups.bioconductor.org/currently-active-working-groups-committees.html#edam-collaboration). Participation is flexible—members are encouraged to follow updates, drop into discussions, or join our meetings as often or as little as they’d like.
+We welcome anyone interested to join our [Bioconductor Slack](https://slack.bioconductor.org/) \#edam-collaboration channel or visit our [working group page](https://workinggroups.bioconductor.org/currently-active-working-groups-committees.html#edam-collaboration). Participation is flexible—members are encouraged to follow updates, drop into discussions, or join our meetings as often or as little as they’d like.
 
-# Links to software
+# Data availability
 
 This project utilised multiple resources to support the integration of Bioconductor packages within the ELIXIR Research Software Ecosystem.
 
-- The [biocEDAM GitHub repository](https://github.com/vjcitn/biocEDAM) served as the primary workspace for EDAM term mapping and developing the `edamize()` function for automated annotations.
-- Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub repository](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor).
-- The [Google Sheet of packages and terms ](https://docs.google.com/spreadsheets/d/155rJX5pUPFDIQNsX0AsohEjFjxfJ9za54b45V9gtQzg/edit?gid=1035911148#gid=1035911148) contains the curated reference package list, along with ongoing EDAM annotations and metadata. It also includes the results of manual reviews of automated biocViews-EDAM mappings, assessing the accuracy and relevance of each mapping.
-- A [BioChatter prototype module](https://github.com/biocypher/biochatter/tree/biotools-API) is in development to support natural language querying via the bio.tools API, to be refined with additional use cases.
+* The [biocEDAM GitHub repository](https://vjcitn.github.io/biocEDAM/) served as the primary workspace for EDAM term mapping and developing the edamize() function for automated annotations.
 
-## Acknowledgements
+* Bioconductor metadata imports were added to the [ELIXIR RSEc GitHub data repository](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor). Code for the automation of these imports and the analysis/transformation of the data is available on the [ELIXIR RSEc GitHub utils repository](https://github.com/research-software-ecosystem/utils)
 
-This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d'Investissements d'Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This work was supported in part by NHGRI U24HG004059 "Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics". This project has been made possible in part by grants 2024-XXX (TODO: Add Vince's CZI EOSS6 grant id), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. 
+* A [BioChatter prototype module](https://github.com/biocypher/biochatter/blob/main/biochatter/api_agent/web/bio_tools.py) has been developed to support natural language querying via the bio.tools API, to be refined with additional use cases. 
 
-## References
+# Acknowledgements
+
+This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024\. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d’Investissements d’Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This work was supported in part by NHGRI U24HG004059 “Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics”. This project has been made possible in part by grants 2024-XXX (TODO: Add Vince’s CZI EOSS6 grant id), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. SN acknowledges funding from the German Federal Ministry of Education and Research in the frame of de.NBI/ELIXIR-DE (W-de.NBI-11).
+
+# References
