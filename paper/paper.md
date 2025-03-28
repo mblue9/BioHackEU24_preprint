@@ -161,8 +161,8 @@ biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what 
 biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))</code>
 
 `# get biocViews software vocabulary [R]`  
-`reposPath <- system.file("doc", package="biocViews")`  
-`reposUrl <- paste("file://", reposPath, sep="")`   
+`r reposPath <- system.file("doc", package="biocViews")`  
+`{r} reposUrl <- paste("file://", reposPath, sep="")`   
 `biocViews_soft <- names(getBiocSubViews(reposUrl, biocViewsVocab, topTerm="Software"))`
 
 **Mapping results**
