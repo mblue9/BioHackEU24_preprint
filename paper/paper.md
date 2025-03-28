@@ -140,7 +140,7 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 
 **Exploration of software package annotations.** Bioconductor uses the biocViews vocabulary for package annotations. Leaving aside annotation, experiment, and workflow packages, there is a collection of 2,289 software packages to synchronise with the RSEc. Overall, those packages are annotated using 235 different terms, with high disparities in their respective usage (Figure 3a,c). Besides, the number of annotations per package also varies widely (Figure 3b). 
 
-> ```r
+```r
 # get software annotations  
 annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%  
   unnest(biocViews))$biocViews)
@@ -152,10 +152,10 @@ annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polya
 
 **Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
 
-`# get biocViews vocabulary [R]`  
-`data(biocViewsVocab)`  
-`biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what = "edges")`  
-`biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))`
+<code># get biocViews vocabulary [R]  
+data(biocViewsVocab)  
+biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what = "edges")  
+biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))</code>
 
 `# get biocViews software vocabulary [R]`  
 `reposPath <- system.file("doc", package="biocViews")`  
