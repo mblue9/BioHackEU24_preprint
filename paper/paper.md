@@ -123,10 +123,10 @@ One of the main goals of the work initiated here is to synchronize the Bioconduc
 
 Bioconductor itself maintains four types of packages in the following domains: 
 
-* software for preprocessing and analysis,   
-* annotation related to genome and organism structure and function,   
-* curated experiments, and   
-* workflow demonstration. 
+* software for preprocessing and analysis   
+* annotation related to genome and organism structure and function   
+* curated experiments   
+* workflow demonstration 
 
 The terms "Software", "Annotation", "Experiment", and "Workflow" are children of the root node of the biocViews vocabulary.
 
@@ -140,6 +140,7 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 
 **Exploration of software package annotations.** Bioconductor uses the biocViews vocabulary for package annotations. Leaving aside annotation, experiment, and workflow packages, there is a collection of 2,289 software packages to synchronise with the RSEc. Overall, those packages are annotated using 235 different terms, with high disparities in their respective usage (Figure 3a,c). Besides, the number of annotations per package also varies widely (Figure 3b). 
 
+````md
 ```r
 # get software annotations  
 annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%  
@@ -149,6 +150,8 @@ annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocVi
 annotated_terms <- annotated_terms[!annotated_terms %in% c("Scale\nsimulation","Genetics\nCellBiology", "Differential Polyadenylation\nSite Usage", "3' end sequencing", "", NA)]  
 annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polyadenylation", "Site Usage", "3p end sequencing")
 ```
+````
+
 
 **Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
 
