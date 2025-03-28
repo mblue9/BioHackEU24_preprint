@@ -121,8 +121,8 @@ One of the main goals of the work initiated here is to synchronize the Bioconduc
 Bioconductor itself maintains four types of packages in the following domains: 
 
 * software for preprocessing and analysis  \vspace{1.5cm} 
-* annotation related to genome and organism structure and function   
-* curated experiments  \vspace{.5cm} 
+* annotation related to genome and organism structure and function \vspace{-5mm}   
+* curated experiments  \vspace{5mm} 
 * workflow demonstration 
 
 The terms "Software", "Annotation", "Experiment", and "Workflow" are children of the root node of the biocViews vocabulary.
