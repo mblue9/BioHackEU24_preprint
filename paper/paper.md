@@ -2,7 +2,7 @@
 title: 'BioHackEU24 report: Integrating Bioconductor packages with the ELIXIR Research
   Software Ecosystem using EDAM'
 title_short: 'BioHackEU24 #27: Integrating Bioconductor with ELIXIR RSEc'
-date: "8 November 2024"
+date: "28 March 2025"
 output: pdf_document
 affiliations:
 - name: "IFB-core, Institut Français de Bioinformatique (IFB), CNRS, INSERM, INRAE,
@@ -33,6 +33,9 @@ tags:
 - bioinformatics
 - ontology
 - biohackeu24
+- Bioconductor
+- EDAM
+- ELIXIR
 cito-bibliography: paper.bib
 event: BH24EU
 biohackathon_name: BioHackathon Europe 2024
@@ -45,30 +48,42 @@ authors:
 - name: Claire Rioualen
   orcid: "0000-0002-7684-8679"
   affiliation: 1
+- name: Aurélien Barre
+  orcid: "xx"
+  affiliation: 2
 - name: Vincent J Carey
   orcid: "0000-0003-4046-0063"
-  affiliation: 2
+  affiliation: 3
+- name: Benjamin Dartigues
+  orcid: "xx"
+  affiliation: 4
 - name: Matúš Kalaš
   orcid: "0000-0002-1509-4981"
-  affiliation: 3
+  affiliation: 5
 - name: Sebastian Lobentanzer
   orcid: "0000-0003-3399-6695"
-  affiliation: 4
+  affiliation: 6
 - name: Hervé Ménager
   orcid: "0000-0002-7552-1009"
-  affiliation: 1, 5
+  affiliation: 1, 7
 - name: Steffen Neumann
   orcid: "0000-0002-7899-7192"
-  affiliation: 7  
+  affiliation: 8  
+- name: Kozo Nishida
+  orcid: "xx"
+  affiliation: 9
+- name: Veit Schwämmle 
+  orcid: ""
+  affiliation: 10
+- name: Anh Nguyet Vu 
+  orcid: "0000-0003-1488-6730"
+  affiliation: 11
 - name: Egon Willighagen
   orcid: "0000-0001-7542-0286"
-  affiliation: 6
-- name: firstName lastName
-  orcid: "0000-0000-0000-0000"
-  affiliation: 8
+  affiliation: 12
 - name: Maria A Doyle
   orcid: "0000-0003-4847-8436"
-  affiliation: false
+  affiliation: 13
 ---
 
 # !! DON'T EDIT BELOW, EDIT CURRENT VERSION HERE: https://docs.google.com/document/d/1BZYPlJ1VmVz7i7agjr0PlYxx9ROVPob6/edit
