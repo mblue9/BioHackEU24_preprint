@@ -18,7 +18,7 @@ affiliations:
   ror: 03zga2b32
   index: 5
 - name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
-  ror: 00cfam450, 
+  ror: 00cfam450, 04qq88z54
   index: 6
 - name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   index: 7
