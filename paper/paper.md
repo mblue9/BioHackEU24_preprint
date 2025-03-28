@@ -222,7 +222,7 @@ The main challenges for this update are:
 
 ![Workflow developed for the automated synchronisation of Bioconductor packages and their metadata in bio.tools.](figures/Figure7.png)
 
-Upon finalisation, package information regarding the 2289 Bioconductor packages will be available and automatically updated not only in the RSEc but also in bio.tools, representing \~7.5% of the current total bio.tools entries, with 1507 updated entries and 289 new entries (numbers upon publication of this report).
+Upon finalisation, package information regarding the 2289 Bioconductor packages will be available and automatically updated not only in the RSEc but also in bio.tools, with 1507 updated entries and 289 new entries (numbers upon publication of this report).
 
 ## Enhancing user querying of tools with an AI-based conversational agent
 
