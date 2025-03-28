@@ -23,8 +23,7 @@ affiliations:
 - name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   index: 7
 - name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
-  ror: 01mzk5576
-  ror: 04qq88z54
+  ror: 01mzk5576, 04qq88z54
   index: 8
 - name: "XXXXX"
   index: 9
