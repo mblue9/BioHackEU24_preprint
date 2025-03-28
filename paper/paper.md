@@ -120,9 +120,9 @@ One of the main goals of the work initiated here is to synchronize the Bioconduc
 
 Bioconductor itself maintains four types of packages in the following domains: 
 
-* software for preprocessing and analysis  \vspace{1.5cm} 
+* software for preprocessing and analysis  \vspace{-5mm}  
 * annotation related to genome and organism structure and function \vspace{-5mm}   
-* curated experiments  \vspace{5mm} 
+* curated experiments  \vspace{-5mm}  
 * workflow demonstration 
 
 The terms "Software", "Annotation", "Experiment", and "Workflow" are children of the root node of the biocViews vocabulary.
@@ -169,10 +169,10 @@ We mapped all of the vocabulary considered above against the EDAM ontology using
 
 After curation, the mapped vocabulary was divided into the following 5 categories:
 
-* Good: a perfect match or very close match with an EDAM term   
-* Partial: a good enough match with an EDAM term   
-* Term suggestion: there is no good match, but curation suggests another existing EDAM term  
-* Term missing: there is no good match, and there is no adequate term available currently in EDAM  
+* Good: a perfect match or very close match with an EDAM term \vspace{-5mm}
+* Partial: a good enough match with an EDAM term \vspace{-5mm}
+* Term suggestion: there is no good match, but curation suggests another existing EDAM term \vspace{-5mm} 
+* Term missing: there is no good match, and there is no adequate term available currently in EDAM  \vspace{-5mm}
 * Out of scope:  there is no good match, and the term is not in the scope of EDAM  
 
 While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Fig 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Fig 4, Fig 5b-c).
