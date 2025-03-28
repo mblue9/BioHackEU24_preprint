@@ -6,28 +6,35 @@ date: "28 March 2025"
 output: pdf_document
 affiliations:
 - name: "Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France"
+  ror: 045f7pv37 
   index: 1
-- name: "XXX"
+- name: "XXXXX"
   index: 2
 - name: "Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA"
   index: 3
-- name: "XXX"
+- name: "XXXXX"
   index: 4
 - name: "ELIXIR Norway, and Department of Informatics, University of Bergen, Norway"
+  ror: 03zga2b32
   index: 5
 - name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
+  ror: 00cfam450, 
   index: 6
 - name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   index: 7
 - name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
+  ror: 01mzk5576
+  ror: 04qq88z54
   index: 8
-- name: "XXX"
+- name: "XXXXX"
   index: 9
-- name: "XXX"
+- name: "XXXXX"
   index: 10
-- name: "XXX"
+- name: "XXXXX"
+  ror: 049ncjx51
   index: 11
 - name: "Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, The Netherlands"
+  ror: 02jz4aj89
   index: 12
 - name: "Limerick Digital Cancer Research Centre, School of Medicine, University of Limerick, V94 T9PX, Ireland"
   index: 13
@@ -94,7 +101,7 @@ Key results from the ELIXIR BioHackathon 2024 week include substantial progress 
 
 ## Background
 
-[Bioconductor](https://bioconductor.org/) [@gentleman_bioconductor_2004; huber_orchestrating_2015] is a global open-source project that provides over 2,000 packages for biological data analysis within the R programming environment. Supporting a vast range of bioinformatics applications, these tools are widely used for gene expression analysis, visualisation, and data integration, making Bioconductor a critical resource for life sciences research. However, the expanding bioinformatics landscape calls for enhanced methods to locate and apply appropriate tools, especially in complex workflows. Now in its third decade, the Bioconductor project has used a six month release cycle. All resources managed by the project are quality-controlled and revised every release. New resources are reviewed and added and obsolete or unmaintained resources are dropped in a formal deprecation process with a six month cadence.   
+[Bioconductor](https://bioconductor.org/) [@gentleman_bioconductor_2004; @huber_orchestrating_2015] is a global open-source project that provides over 2,000 packages for biological data analysis within the R programming environment. Supporting a vast range of bioinformatics applications, these tools are widely used for gene expression analysis, visualisation, and data integration, making Bioconductor a critical resource for life sciences research. However, the expanding bioinformatics landscape calls for enhanced methods to locate and apply appropriate tools, especially in complex workflows. Now in its third decade, the Bioconductor project has used a six month release cycle. All resources managed by the project are quality-controlled and revised every release. New resources are reviewed and added and obsolete or unmaintained resources are dropped in a formal deprecation process with a six month cadence.   
 
 The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosystem.github.io/) [@ienasescu_elixir_2023] promotes the FAIR principles—Findability, Accessibility, Interoperability, and Reusability—, through the centralisation and curation of metadata for computational biology software tools. It relies heavily on the bio.tools registry [@ison_biotools_2019] and the EDAM ontology [@ison_edam_2013] for the description of bioinformatics tools. EDAM is a domain ontology focusing on concepts related to life science data analysis (Figure 1a). bio.tools holds a collection of more than 30,000 tools, curated and annotated using EDAM terms. It also provides enhanced search capacities and navigation (Figure 1b), and an API for easy programmatic access to the database.
 
