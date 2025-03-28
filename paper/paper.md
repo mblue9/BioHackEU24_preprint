@@ -98,11 +98,7 @@ Key results from the ELIXIR BioHackathon 2024 week include substantial progress 
 
 The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosystem.github.io/) (Ienasescu et al., 2023\) promotes the FAIR principles—Findability, Accessibility, Interoperability, and Reusability—, through the centralisation and curation of metadata for computational biology software tools. It relies heavily on the bio.tools registry (Ison et al., 2019\) and the EDAM ontology (Ison et al., 2013; Black et al., 2022\) for the description of bioinformatics tools. EDAM is a domain ontology focusing on concepts related to life science data analysis (Figure 1a). bio.tools holds a collection of more than 30,000 tools, curated and annotated using EDAM terms. It also provides enhanced search capacities and navigation (Figure 1b), and an API for easy programmatic access to the database.
 
-![biocViews categories on the Bioconductor website. biocViews (shown on the left) is a non-ontological, hierarchical vocabulary of over 400 terms used to categorise Bioconductor packages based on their functionality.](figures/biocViews.png)
-
-![EDAM ontology structure. EDAM organises bioinformatics concepts into a hierarchical ontology with four main categories: Data, Format, Operation, and Topic. This formal structure facilitates interoperability by providing standardised, machine-readable annotations that enhance discoverability and integration across bioinformatics tools and platforms.](figures/EDAM.png)
-
-![Bio.tools DESeq2 Example. The bio.tools entry for DESeq2 demonstrates how EDAM terms are applied to specify the tool’s data, operations, and formats, enhancing categorisation and searchability within ELIXIR.](figures/biotools_DESeq2.png)
+![**a.** EDAM ontology structure. EDAM organises bioinformatics concepts into a hierarchical ontology with four main categories: Data, Format, Operation, and Topic. This formal structure facilitates interoperability by providing standardised, machine-readable annotations that enhance discoverability and integration across bioinformatics tools and platforms. **b.** bio.tools tool page. The bio.tools entry for Bowtie 2 demonstrates how EDAM terms are applied to describe the scientific function of the tool, using EDAM data, operations, formats, and topics.](figures/Fig1ab.png)
 
 ## Objectives
 
@@ -140,7 +136,6 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 
 **Exploration of software package annotations.** Bioconductor uses the biocViews vocabulary for package annotations. Leaving aside annotation, experiment, and workflow packages, there is a collection of 2,289 software packages to synchronise with the RSEc. Overall, those packages are annotated using 235 different terms, with high disparities in their respective usage (Figure 3a,c). Besides, the number of annotations per package also varies widely (Figure 3b). 
 
-````md
 ```r
 # get software annotations  
 annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%  
@@ -150,19 +145,17 @@ annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocVi
 annotated_terms <- annotated_terms[!annotated_terms %in% c("Scale\nsimulation","Genetics\nCellBiology", "Differential Polyadenylation\nSite Usage", "3' end sequencing", "", NA)]  
 annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polyadenylation", "Site Usage", "3p end sequencing")
 ```
-````
-
 
 **Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
 
-<code># get biocViews vocabulary [R]  
-data(biocViewsVocab)  
-biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what = "edges")  
-biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))</code>
+`# get biocViews vocabulary [R]`
+`data(biocViewsVocab)`
+`biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% as_data_frame(what = "edges")`  
+`biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))`
 
 `# get biocViews software vocabulary [R]`  
-`r reposPath <- system.file("doc", package="biocViews")`  
-`{r} reposUrl <- paste("file://", reposPath, sep="")`   
+`reposPath <- system.file("doc", package="biocViews")`  
+`reposUrl <- paste("file://", reposPath, sep="")`   
 `biocViews_soft <- names(getBiocSubViews(reposUrl, biocViewsVocab, topTerm="Software"))`
 
 **Mapping results**
