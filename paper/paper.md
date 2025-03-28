@@ -104,6 +104,8 @@ The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosys
 
 Bioconductor uses an *ad hoc* vocabulary for the description of packages called biocViews (Carey et al., 2024), which is structured as a graph with nearly 500 terms describing package attributes (Figure 2). However, it lacks the formal structure of a true ontology, which can limit its utility for automated discovery and interoperability. EDAM, on the other hand, is an OWL-based ontology specifically designed for data analysis and data management concepts in biosciences, making it a better candidate for formalised, interoperable annotations. Aligning Bioconductor packages with this standard aims to enhance tool discoverability within the broader bioinformatics community.
 
+![biocViews categories on the Bioconductor website. biocViews (shown on the left) is a non-ontological, hierarchical vocabulary of nearly 500 terms used to categorise Bioconductor packages based on their functionality.](figures/Figure2.png)
+
 Over the years, multiple initiatives have built connections between Bioconductor and parts of the ELIXIR ecosystem, however no integrated and sustainable solution has been implemented so far.
 
 The long term goals of this project are to (1) annotate more than 2,000 Bioconductor packages using EDAM, and (2) automate their integration with the ELIXIR Research Software Ecosystem and the bio.tools registry. More specifically, our objectives for this BioHackathon included mapping the biocViews taxonomy to EDAM terms, assessing biocViews-EDAM mappings to identify gaps and inconsistencies, curating a reference subset of Bioconductor packages with manual annotations, and developing tools for automated EDAM term suggestions. Additionally, the implementation of automated synchronisation mechanisms between Bioconductor and bio.tools was initiated. 
@@ -136,6 +138,8 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 
 **Exploration of software package annotations.** Bioconductor uses the biocViews vocabulary for package annotations. Leaving aside annotation, experiment, and workflow packages, there is a collection of 2,289 software packages to synchronise with the RSEc. Overall, those packages are annotated using 235 different terms, with high disparities in their respective usage (Figure 3a,c). Besides, the number of annotations per package also varies widely (Figure 3b). 
 
+![**a.** On average, the terms used for software package annotations are used 10 times, ranging from 0 to nearly 800 for the term “Software” itself. **b.** Packages are annotated with about 8 different terms on average, while overall these values range from 0 to 45\.  **c.** Wordcloud of terms usage.](figures/Figure3abc.png)
+
 ```r
 # get software annotations  
 annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%  
@@ -147,6 +151,8 @@ annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polya
 ```
 
 **Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
+
+![Upset plot of 3 lists of terms: the biocViews vocabulary, the biocViews vocabulary for software, and the annotated terms from the current collection of 2,289 software packages. In total there are 548 terms either used or proposed as part of the biocViews controlled vocabulary, including 250 terms either used or proposed for software package annotations.](figures/Figure4.png)
 
 `# get biocViews vocabulary [R]`
 `data(biocViewsVocab)`
@@ -172,6 +178,8 @@ After curation, the mapped vocabulary was divided into the following 5 categorie
 
 While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Fig 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Fig 4, Fig 5b-c).
 
+![**a.** A total of 548 terms were mapped to EDAM using the text2term library, of which about half are out of the scope of EDAM. **b.** Setting aside the less relevant terms (Figure 4), 250 curated terms were further considered. 128 terms (51.2%) are mapped correctly; 53 terms (21.2%) do not have good matches but other terms were suggested through manual curation; 31 terms (12.4%) are missing from the ontology, and 38 terms (15.2%) were considered out of the scope of EDAM. **c.** Among the 102 “good” matches, terms were mapped to 60 EDAM topics (58.8%), 32 EDAM operations (31.4%), and 10 EDAM data types (9.8%).](figures/Figure5abc.png)
+
 A list of 29 terms deemed as missing from EDAM was proposed from the 31 curated terms missing a match (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Missing\_terms” tab \- color code follows Figure 4). Among those, a few terms are related to high-throughput technologies and should be considered for addition; a few terms are related to microarray technologies, which triggers questions about their relevance nowadays; a few terms are currently part of a separate, non-released extension of the EDAM ontology;  and 3 terms were once part of EDAM before being made deprecated concepts, and could be reinstated. 
 
 `# save list of all above terms to file [R]`  
@@ -195,7 +203,6 @@ The biocEDAM package (in development in [github](https://vjcitn.github.io/biocED
 
 The term-to-package assignments achieved through this process seem reasonable. Vignette summaries from two packages, `ChemmineOB` and `phyloseq`, could not be processed by `edamize`. Investigation of these failures is underway.
 
-
 ## Synchronising Bioconductor packages with the ELIXIR RSEc and bio.tools
 
 The synchronization between Bioconductor metadata and both bio.tools and the ELIXIR Research Software Ecosystem (RSEc) has been successfully established, with automated imports from Bioconductor to the RSEc now occurring on a weekly basis (see [https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor](https://github.com/research-software-ecosystem/content/tree/master/imports/bioconductor) for imported contents from Bioconductor, and [https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-import](https://github.com/research-software-ecosystem/utils/tree/main/bioconductor-import) for the scripts that perform it).
@@ -211,6 +218,10 @@ The main challenges for this update are:
 
 * to avoid duplication of bio.tools entries for a given Bioconductor package. To reduce this risk, newly created entries in bio.tools will follow a naming convention based on bioconductor package names (i.e. bio.tools ids will be named `bioconductor-{bioconductor package name}`. Existing bioconductor entries, created before the setup of this mechanism, will be automatically detected (based on tool identifier/name or citation information, see figure 7), and retain their old bio.tools identifier.  
 * to guarantee that for all packages, metadata available from Bioconductor (e.g., current version, reference citation, etc.) are updated from this source, while information which is only available from bio.tools (e.g. EDAM annotations) is not overwritten. The workflow currently developed will therefore eventually, once the Bioconductor raw files have been imported from Bioconductor, either create new bio.tools entries, or for Bioconductor packages already existing in bio.tools, merge the metadata from Bioconductor and bio.tools. The full workflow as currently envisioned is illustrated in Figure 8\.
+
+![Upset plot summarising matching properties between bio.tools and bioconductor files in RSEc. Entry matches have been tested for equality in name, biotools ID, and homepage, as well as reference publication (through their DOI).](figures/Figure6.png)
+
+![Workflow developed for the automated synchronisation of Bioconductor packages and their metadata in bio.tools.](figures/Figure7.png)
 
 Upon finalisation, package information regarding the 2289 Bioconductor packages will be available and automatically updated not only in the RSEc but also in bio.tools, representing \~7.5% of the current total bio.tools entries, with 1507 updated entries and 289 new entries (numbers upon publication of this report).
 
