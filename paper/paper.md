@@ -227,7 +227,7 @@ The main challenges for this update are:
 
 ![Upset plot summarising matching properties between bio.tools and bioconductor files in RSEc. Entry matches have been tested for equality in name, biotools ID, and homepage, as well as reference publication (through their DOI).](figures/Figure6.png)
 
-![Workflow developed for the automated synchronisation of Bioconductor packages and their metadata in bio.tools.](figures/Figure7.png)
+![Workflow developed for the automated synchronisation of Bioconductor packages and their metadata in bio.tools. Step 1 converts the Bioconductor JSON file to the bio.tools format; Step 2 enriches it with the recommended citation data as defined by Bioconductor; Step 3 merges the previous description of the package, coming from bio.tools, so that information which is not available in Bioconductor metadata isn't removed through the update process](figures/Figure7.png)
 
 Upon finalisation, package information regarding the 2289 Bioconductor packages will be available and automatically updated not only in the RSEc but also in bio.tools, with 1507 updated entries and 289 new entries (numbers upon publication of this report).
 
