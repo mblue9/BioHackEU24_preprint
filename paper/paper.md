@@ -212,8 +212,8 @@ write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)),
 
 ```python
 # [python] map all terms with EDAM using text2term 
-edam_dev_owl="https://raw.githubusercontent.com/edamontology/edamontology/
-  refs/heads/main/EDAM_dev.owl"
+edam_dev_owl = 
+  "https://raw.githubusercontent.com/edamontology/edamontology/refs/heads/main/EDAM_dev.owl"
 
 text2term.map_terms(source_terms="bioc_all_terms_used.tsv", 
   target_ontology=edam_dev_owl, min_score=0, save_mappings=True, 
