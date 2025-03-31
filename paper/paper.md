@@ -24,8 +24,11 @@ affiliations:
   ror: 0495fxg12
   index: 7
 - name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
-  ror: 01mzk5576, 04qq88z54
+  ror: 01mzk5576
   index: 8
+- name: "German Center for Diabetes Research, Munich, Germany"
+  ror: 04qq88z54
+  index: 14
 - name: "XXXXX"
   index: 9
 - name: "XXXXX"
@@ -75,7 +78,7 @@ authors:
   affiliation: 1, 7
 - name: Steffen Neumann
   orcid: "0000-0002-7899-7192"
-  affiliation: 8  
+  affiliation: 8, 14
 - name: Kozo Nishida
   affiliation: 9
 - name: Veit Schwämmle 
