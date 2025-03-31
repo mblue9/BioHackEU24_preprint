@@ -96,7 +96,8 @@ authors:
 
 ## Abstract
 
-**IMPORTANT: please revise your authorships, affiliations and numbering**
+**!! IMPORTANT !!**
+**Please revise your authorships, affiliations and corresponding numbering**
 
 This project seeks to enhance the ELIXIR Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, we aim to improve the discoverability and usability of bioinformatics analysis tools. Short-term goals include mapping Bioconductor’s biocViews controlled vocabulary to EDAM terms, developing a set of manually annotated “gold standard” packages, and evaluating tools for automated EDAM term suggestions. Long-term, we intend to expand EDAM coverage across Bioconductor, phase out biocViews, and implement automated synchronisation with bio.tools. This initiative fosters collaboration between Bioconductor and ELIXIR, establishing a foundation for sustainable software management in European bioinformatics.
 
@@ -130,12 +131,15 @@ Beyond advancing the EDAM standard, this initiative builds a collaborative bridg
 
 One of the main goals of the work initiated during the BioHackathon was to synchronize the Bioconductor ecosystem with the ELIXIR Research Software Ecosystem, so that all relevant information regarding resources maintained in Bioconductor are automatically updated on the schedule of Bioconductor's six-month release cadence. 
 
-Bioconductor itself maintains four types of packages in the following domains: 
+Bioconductor itself maintains four types of packages for different purposes (Table 1). 
 
-* "Software" packages for preprocessing and analysis  \vspace{-5mm}  
-* "AnnotationData" packages related to genome and organism structure and function \vspace{-5mm}   
-* "ExperimentData" packages providing curated experiment data \vspace{-5mm}  
-* "Workflow" packages consisting of workflow demonstrations 
+| Package type   | Description                                                    |
+|----------------|----------------------------------------------------------------|
+| Software       | packages for data processing and analysis                      |
+| AnnotationData | packages related to genome and organism structure and function |
+| ExperimentData | packages providing curated experiment data                     |
+| Workflow.      | packages consisting of workflow demonstrations                 |
+**Table 2.**
 
 The terms "Software", "AnnotationData", "ExperimentData" and "Workflow" are children of the root node of the biocViews vocabulary.
 
@@ -169,7 +173,7 @@ annotated_terms <-
   "Differential Polyadenylation", "Site Usage")
 ```
 
-**Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [`BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the [`biocViews`](https://bioconductor.org/packages/release/bioc/html/biocViews.html) package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows a few issues to be considered. While 160 of the dedicated 175 terms are used for software package annotations (Figure 4, green bar), some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Figure 4, yellow bar). Besides, 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); and 15 valid terms are not used at all (Figure 4, orange bar). Finally 298 biocViews terms that are not meant for software annotation are consistently not used not used as such (Figure 4, red bar). The latter are thus of minor importance in the current scope of our project.
+**Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [`BiocCheck`](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the [`biocViews`](https://bioconductor.org/packages/release/bioc/html/biocViews.html) package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows a few issues to be considered. While 160 of the dedicated 175 terms are used for software package annotations (Figure 4, green bar), some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Figure 4, yellow bar). Besides, 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); and 15 valid terms are not used at all (Figure 4, orange bar). Finally 298 biocViews terms that are not meant for software annotation are consistently not used not used as such (Figure 4, red bar). The latter are thus of minor importance in the current scope of our project.
 
 ![Upset plot showing the overlaps between 3 lists of terms: the biocViews vocabulary, the biocViews vocabulary for software, and the annotated terms from the current collection of 2,289 software packages. In total there are 548 terms either used or proposed as part of the biocViews controlled vocabulary, including 250 terms either used or proposed for software package annotations.](figures/Figure4.png)
 
@@ -187,11 +191,9 @@ biocViews_soft <- names(getBiocSubViews
   (reposUrl, biocViewsVocab, topTerm="Software"))
 ``` 
 
-**Mapping results**
+**Mapping results.** We mapped all of the vocabulary considered above against the EDAM ontology using the [`text2term`](https://github.com/rsgoncalves/text2term) Python library. This library proposes a variety of scoring methods based on string similarity, however it may underestimate the actual relevance of a mapped term, or not output a satisfying match when an actually relevant but distinct term or synonym is available in EDAM. Hence, though it provides a good basis for the “translation” of Bioconductor packages annotations to EDAM terms, it requires significant manual curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Mapping\_curated” tab \- background color code follows the catgories shown in Figure 4). 
 
-We mapped all of the vocabulary considered above against the EDAM ontology using the [`text2term`](https://github.com/rsgoncalves/text2term) Python library. This library proposes a variety of scoring methods based on string similarity, however it may underestimate the actual relevance of a mapped term, or not output a satisfying match when an actually relevant but distinct term or synonym is available in EDAM. Hence, though it provides a good basis for the “translation” of Bioconductor packages annotations to EDAM terms, it requires significant manual curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Mapping\_curated” tab \- background color code follows the catgories shown in Figure 4). 
-
-After curation, the mapped vocabulary was divided into 5 categories (Table 1).
+After curation, the mapped vocabulary was divided into five categories (Table 2).
 
 | Category         | Description                                                                       |
 |------------------|-----------------------------------------------------------------------------------|
@@ -200,8 +202,7 @@ After curation, the mapped vocabulary was divided into 5 categories (Table 1).
 | Term suggestion  | There is no good match, but curation suggests another existing EDAM term          |
 | Missing - to add | There is no good match, and there is no adequate term available currently in EDAM |
 | Out of scope     | There is no good match, and the term is not in the scope of EDAM                  |
-
-**Table 1.**
+**Table 2.**
 
 While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Figure 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Figure 4, Figure 5b-c).
 
