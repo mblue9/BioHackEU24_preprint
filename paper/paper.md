@@ -150,18 +150,19 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 ![**a.** On average, the terms used for software package annotations are used 10 times, ranging from 0 to nearly 800 for the term “Software” itself. **b.** Packages are annotated with about 8 different terms on average, while overall these values range from 0 to 45\.  **c.** Wordcloud of terms usage.](figures/Figure3abc.png)
 
 ```r
-# get software annotations  
+# [R] get software annotations  
 annotated_terms <- unique(
   (BiocPkgTools::biocPkgList(version = "3.20",
     addBiocViewParents = FALSE, repo = c("BioCsoft"))
   %>% unnest(biocViews))$biocViews
 )
 
-# make some manual corrections after identifying a few bugs
+# [R] make some manual corrections after identifying a few bugs
 annotated_terms <- annotated_terms[!annotated_terms %in% 
   c("Scale\nsimulation","Genetics\nCellBiology", "3' end sequencing", 
   "Differential Polyadenylation\nSite Usage", "", NA)]
-annotated_terms <- c(annotated_terms, "Scale", "simulation", "3p end sequencing", 
+annotated_terms <- 
+  c(annotated_terms, "Scale", "simulation", "3p end sequencing", 
   "Differential Polyadenylation", "Site Usage")
 ```
 
@@ -170,19 +171,16 @@ annotated_terms <- c(annotated_terms, "Scale", "simulation", "3p end sequencing"
 ![Upset plot of 3 lists of terms: the biocViews vocabulary, the biocViews vocabulary for software, and the annotated terms from the current collection of 2,289 software packages. In total there are 548 terms either used or proposed as part of the biocViews controlled vocabulary, including 250 terms either used or proposed for software package annotations.](figures/Figure4.png)
 
 ```r
-# get biocViews vocabulary
+# [R] get biocViews vocabulary
 data(biocViewsVocab)
-
 biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% 
   as_data_frame(what = "edges")
 
 biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))
 
-# get biocViews software vocabulary
+# [R] get biocViews software vocabulary
 reposPath <- system.file("doc", package="biocViews")
-
 reposUrl <- paste("file://", reposPath, sep="")   
-
 biocViews_soft <- names(getBiocSubViews
   (reposUrl, biocViewsVocab, topTerm="Software"))
 ``` 
@@ -206,16 +204,20 @@ While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid term
 A list of 29 terms deemed as missing from EDAM was proposed from the 31 curated terms missing a match (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Missing\_terms” tab \- color code follows Figure 4). Among those, a few terms are related to high-throughput technologies and should be considered for addition; a few terms are related to microarray technologies, which triggers questions about their relevance nowadays; a few terms are currently part of a separate, non-released extension of the EDAM ontology;  and 3 terms were once part of EDAM before being made deprecated concepts, and could be reinstated. 
 
 ```r
-# save list of all above terms to file
-write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)), file = "bioc_all_terms_used.tsv", quote = F, col.names = F, row.names = F, sep = "\t")
+# [R] save list of all above terms to file
+write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)), 
+  file = "bioc_all_terms_used.tsv", col.names = F, row.names = F, 
+  quote = F, sep = "\t")
 ```
 
 ```python
-# map all terms with EDAM using text2term 
-edam_dev_owl="https://raw.githubusercontent.com/edamontology/edamontology/refs/heads/main/EDAM_dev.owl"
+# [python] map all terms with EDAM using text2term 
+edam_dev_owl="https://raw.githubusercontent.com/edamontology/edamontology/
+  refs/heads/main/EDAM_dev.owl"
 
-text2term.map_terms(source_terms="bioc_all_terms_used.tsv", target_ontology=edam_dev_owl, 
-  min_score=0, save_mappings=True, output_file="mapping_tests_claire/bioc_all_terms_used_mapped.csv", 
+text2term.map_terms(source_terms="bioc_all_terms_used.tsv", 
+  target_ontology=edam_dev_owl, min_score=0, save_mappings=True, 
+  output_file="mapping_tests_claire/bioc_all_terms_used_mapped.csv", 
   term_type="class", incl_unmapped = True)
 ```
 
