@@ -33,7 +33,7 @@ affiliations:
   index: 9
 - name: "XXXXX"
   index: 10
-- name: "XXXXX"
+- name: <span style="background-color: #FFFF00">XXXXX</span>
   ror: 049ncjx51
   index: 11
 - name: "Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, The Netherlands"
@@ -96,7 +96,7 @@ authors:
 
 ## Abstract
 
-This project seeks to enhance the ELIXIR Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, we aim to improve the discoverability and usability of bioinformatics analysis tools. Short-term goals include mapping Bioconductor’s biocViews controlled vocabulary to EDAM terms, developing a set of manually annotated “gold standard” packages, and evaluating tools for automated EDAM term suggestions. Long-term, we intend to expand EDAM coverage across Bioconductor, phase out biocViews, and implement automated synchronisation with bio.tools. This initiative fosters collaboration between Bioconductor and ELIXIR, establishing a foundation for sustainable software management in European bioinformatics.
+This project seeks to enhance the ELIXIR <span style="background-color: #FFFF00">XXXXX</span> Research Software Ecosystem (RSEc) by increasing the findability, accessibility, interoperability, and reusability (FAIR principles) of Bioconductor’s extensive collection of over 2,000 bioinformatics packages. By aligning Bioconductor metadata with the EDAM ontology and integrating detailed package descriptions into the bio.tools registry, we aim to improve the discoverability and usability of bioinformatics analysis tools. Short-term goals include mapping Bioconductor’s biocViews controlled vocabulary to EDAM terms, developing a set of manually annotated “gold standard” packages, and evaluating tools for automated EDAM term suggestions. Long-term, we intend to expand EDAM coverage across Bioconductor, phase out biocViews, and implement automated synchronisation with bio.tools. This initiative fosters collaboration between Bioconductor and ELIXIR, establishing a foundation for sustainable software management in European bioinformatics.
 
 Key results from the ELIXIR BioHackathon 2024 week include substantial progress in mapping the biocViews vocabulary to EDAM terms, initiating the curation of a reference set of packages with manual annotations, integrating Bioconductor metadata into the ELIXIR Research Software Ecosystem (RSEc) with automated updates, and prototyping a tool for automated EDAM term suggestions. Together, these achievements establish a strong foundation for further integration and refinement.
 
@@ -191,7 +191,7 @@ We mapped all of the vocabulary considered above against the EDAM ontology using
 
 After curation, the mapped vocabulary was divided into the following 5 categories:
 
-* Good: a perfect match or very close match with an EDAM term \vspace{-5mm}
+* Good: a perfect match or very close match with an EDAM term 
 * Partial: a good enough match with an EDAM term 
 * Term suggestion: there is no good match, but curation suggests another existing \newline EDAM term 
 * Term missing: there is no good match, and there is no adequate term available \newline currently in EDAM
