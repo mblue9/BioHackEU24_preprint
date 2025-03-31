@@ -112,7 +112,7 @@ The [ELIXIR Research Software Ecosystem (RSEc)](https://research-software-ecosys
 
 ## Objectives
 
-Bioconductor uses an *ad hoc* vocabulary for the description of packages called biocViews [@usesDataFrom:carey_biocviews_2024], which is structured as a graph with nearly 500 terms describing package attributes (Figure 2). However, it lacks the formal structure of a true ontology, which can limit its utility for automated discovery and interoperability. EDAM, on the other hand, is an OWL-based ontology specifically designed for data analysis and data management concepts in biosciences, making it a better candidate for formalised, interoperable annotations. Aligning Bioconductor packages with this standard aims to enhance tool discoverability within the broader bioinformatics community.
+Bioconductor uses an *ad hoc* vocabulary for the description of packages called biocViews [@citesAsDataSource:carey_biocviews_2024], which is structured as a graph with nearly 500 terms describing package attributes (Figure 2). However, it lacks the formal structure of a true ontology, which can limit its utility for automated discovery and interoperability. EDAM, on the other hand, is an OWL-based ontology specifically designed for data analysis and data management concepts in biosciences, making it a better candidate for formalised, interoperable annotations. Aligning Bioconductor packages with this standard aims to enhance tool discoverability within the broader bioinformatics community.
 
 ![biocViews categories on the Bioconductor website. biocViews (shown on the left) is a non-ontological, hierarchical vocabulary of nearly 500 terms used to categorise Bioconductor packages based on their functionality.](figures/Figure2.png)
 
@@ -236,7 +236,7 @@ Upon finalisation, package information regarding the 2289 Bioconductor packages 
 
 ## Enhancing user querying of tools with an AI-based conversational agent
 
-BioChatter is an open-source framework for the customisation of LLM-driven systems for applications in biomedical research [@extends:lobentanzer_platform_2025]. In addition to introducing transparency, flexibility, and open-source principles into the interaction with LLMs at a scientific level, one focus is on allowing tool use by LLMs by implementing dedicated modules that characterise the tool; for instance, by describing a web API, the programmatic use of this API can be facilitated via the LLM.
+BioChatter is an open-source framework for the customisation of LLM-driven systems for applications in biomedical research [@usesMethodIn:lobentanzer_platform_2025]. In addition to introducing transparency, flexibility, and open-source principles into the interaction with LLMs at a scientific level, one focus is on allowing tool use by LLMs by implementing dedicated modules that characterise the tool; for instance, by describing a web API, the programmatic use of this API can be facilitated via the LLM.
 
 A prototype of a [BioChatter](https://biochatter.org/) module was initiated to leverage the bio.tools API, enabling users to query Bioconductor package information more intuitively. The module interprets natural language questions, translates them into bio.tools API calls, and retrieves relevant package details based on EDAM terms and other metadata. This approach is intended to support complex, context-specific queries, enhancing users’ ability to identify suitable Bioconductor tools for particular bioinformatics applications.
 
