@@ -33,7 +33,7 @@ affiliations:
   index: 9
 - name: "XXXXX"
   index: 10
-- name: <span style="background-color: #FFFF00">XXXXX</span>
+- name: "XXXXX"
   ror: 049ncjx51
   index: 11
 - name: "Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, The Netherlands"
