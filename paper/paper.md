@@ -94,7 +94,9 @@ authors:
   affiliation: 13
 ---
 
-:rotating-light: :warning: Revise authors, affiliations and numbering
+:rotating_light: :warning: Revise authors, affiliations and numbering
+
+&#x26d4; or &#9940;
 
 ## Abstract
 
