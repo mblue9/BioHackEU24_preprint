@@ -161,6 +161,7 @@ annotated_terms <- unique(
 annotated_terms <- annotated_terms[!annotated_terms %in% 
   c("Scale\nsimulation","Genetics\nCellBiology", "3' end sequencing", 
   "Differential Polyadenylation\nSite Usage", "", NA)]
+
 annotated_terms <- 
   c(annotated_terms, "Scale", "simulation", "3p end sequencing", 
   "Differential Polyadenylation", "Site Usage")
@@ -175,12 +176,11 @@ annotated_terms <-
 data(biocViewsVocab)
 biocviews_df <- biocViewsVocab %>% graph_from_graphnel() %>% 
   as_data_frame(what = "edges")
-
 biocViews_vocab <- unique(sort(c(biocviews_df$from, biocviews_df$to)))
 
 # [R] get biocViews software vocabulary
 reposPath <- system.file("doc", package="biocViews")
-reposUrl <- paste("file://", reposPath, sep="")   
+reposUrl <- paste("file://", reposPath, sep="")
 biocViews_soft <- names(getBiocSubViews
   (reposUrl, biocViewsVocab, topTerm="Software"))
 ``` 
@@ -213,7 +213,8 @@ write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)),
 ```python
 # [python] map all terms with EDAM using text2term 
 edam_dev_owl = 
-  "https://raw.githubusercontent.com/edamontology/edamontology/refs/heads/main/EDAM_dev.owl"
+  "https://raw.githubusercontent.com/edamontology/edamontology/\
+  refs/heads/main/EDAM_dev.owl"
 
 text2term.map_terms(source_terms="bioc_all_terms_used.tsv", 
   target_ontology=edam_dev_owl, min_score=0, save_mappings=True, 
