@@ -96,7 +96,7 @@ authors:
 
 :rotating_light: :warning: Revise authors, affiliations and numbering
 
-&#x26d4; or &#9940;
+⛔
 
 ## Abstract
 
