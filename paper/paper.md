@@ -151,8 +151,11 @@ The first step for the shifting from biocViews annotations to EDAM annotations c
 
 ```r
 # get software annotations  
-annotated_terms <- unique((BiocPkgTools::biocPkgList(version = "3.20", addBiocViewParents = FALSE, repo = c("BioCsoft")) %>%  
-  unnest(biocViews))$biocViews)
+annotated_terms <- unique(
+  (BiocPkgTools::biocPkgList(version = "3.20",
+    addBiocViewParents = FALSE, repo = c("BioCsoft"))
+  %>% unnest(biocViews))$biocViews
+)
 
 # make some manual corrections after identifying a few bugs
 annotated_terms <- annotated_terms[!annotated_terms %in% c("Scale\nsimulation","Genetics\nCellBiology", "Differential Polyadenylation\nSite Usage", "3' end sequencing", "", NA)]  
