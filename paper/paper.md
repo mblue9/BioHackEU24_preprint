@@ -159,11 +159,10 @@ annotated_terms <- unique(
 
 # make some manual corrections after identifying a few bugs
 annotated_terms <- annotated_terms[!annotated_terms %in% 
-  c("Scale\nsimulation","Genetics\nCellBiology", "Differential Polyadenylation\nSite Usage", 
-    "3' end sequencing", "", NA)]
-
-annotated_terms <- c(annotated_terms, "Scale", "simulation", "Differential Polyadenylation", 
-	"Site Usage", "3p end sequencing")
+  c("Scale\nsimulation","Genetics\nCellBiology", "3' end sequencing", 
+  "Differential Polyadenylation\nSite Usage", "", NA)]
+annotated_terms <- c(annotated_terms, "Scale", "simulation", "3p end sequencing", 
+  "Differential Polyadenylation", "Site Usage")
 ```
 
 **Exploration of the biocViews vocabulary.** Currently, Bioconductor’s biocViews vocabulary includes a total of 497 terms, of which 175 are meant for software annotation. In order to ensure the consistency of the annotations, an automated validation is performed by [BiocCheck](https://github.com/Bioconductor/BiocCheck/blob/devel/R/checks.R#L160-L183) upon submission of a new package. This ensures that packages include valid biocViews terms and meet the minimum requirement of at least two non-top-level terms. Invalid terms trigger an error during package submission, and recommendations for valid terms are provided using the [`recommendBiocViews`](https://github.com/Bioconductor/biocViews/blob/devel/R/recommendBiocViews.R#L164-L289) function from the `biocViews` package. However, the systematic comparison of this controlled vocabulary against the existing annotations shows that 24 biocViews terms that are not meant for software annotation are used as such nonetheless (Figure 4, blue bar); some packages are annotated with non-valid biocViews terms, likely submitted before the implementation of automated checks, amounting to a total of 51 terms (Fig 4, yellow bar); 15 valid terms are not used at all (Fig 4, orange bar); and 298 biocViews terms that are not meant for software annotation are indeed not used as such (Fig 4, red bar). The latter are thus of minor importance in the current scope of our project.
