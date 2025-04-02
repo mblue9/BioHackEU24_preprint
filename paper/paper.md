@@ -31,7 +31,7 @@ affiliations:
   index: 14
 - name: "XXXXX"
   index: 9
-- name: "XXXXX"
+- name: "Department of Biochemistry and Molecular Biology, University of Southern Denmark, Odense, Denmark"
   index: 10
 - name: "XXXXX"
   ror: 049ncjx51
@@ -83,6 +83,7 @@ authors:
   affiliation: 9
 - name: Veit Schwämmle 
   affiliation: 10
+  orcid: "0000-0002-9708-6722"
 - name: Anh Nguyet Vu 
   orcid: "0000-0003-1488-6730"
   affiliation: 11
@@ -143,7 +144,7 @@ Bioconductor itself maintains four types of packages for different purposes (Tab
 
 The terms "Software", "AnnotationData", "ExperimentData" and "Workflow" are children of the root node of the biocViews vocabulary.
 
-Since bio.tools is specifically intended for software, it does not support data-focused packages such as annotation and experiment packages. While workflow packages (currently only around 30) may be considered for future inclusion in the RSEc, they are not within the scope of this initial phase, and only "Software"-tagged packages are therefore currently considered for synchronisation. This decision allows us to focus on software package integration, while laying the groundwork for potentially applying EDAM annotations across all four Bioconductor package types to improve metadata consistency and interoperability in the future.
+Since bio.tools is specifically intended for software and databases, it does not support data-focused packages such as annotation and experiment packages. While workflow packages (currently only around 30) may be considered for future inclusion in the RSEc, they are not within the scope of this initial phase, and only "Software"-tagged packages are therefore currently considered for synchronisation. This decision allows us to focus on software package integration, while laying the groundwork for potentially applying EDAM annotations across all four Bioconductor package types to improve metadata consistency and interoperability in the future.
 
 Key results from the BioHackathon include (1) mapping the biocViews vocabulary with the EDAM ontology, identifying gaps in the ontology and suggesting new terms; (2) defining a set of reference software packages from Bioconductor and manually annotating them, in order to provide a “gold-standard” to evaluate automated annotations; (3) developing large language model-based tools to automate the annotations; (4) synchronising Bioconductor software packages with the ELIXIR Research Software Ecosystem and (5) developing a BioChatter module to leverage the bio.tools API, enabling users to query Bioconductor package information more intuitively. 
 
