@@ -139,7 +139,7 @@ Bioconductor itself maintains four types of packages for different purposes (Tab
 | AnnotationData | packages related to genome and organism structure and function |
 | ExperimentData | packages providing curated experiment data                     |
 | Workflow.      | packages consisting of workflow demonstrations                 |
-**Table 2.**
+**Table 1.** Types of packages provided and curated by the Bioconductor community.
 
 The terms "Software", "AnnotationData", "ExperimentData" and "Workflow" are children of the root node of the biocViews vocabulary.
 
@@ -202,7 +202,7 @@ After curation, the mapped vocabulary was divided into five categories (Table 2)
 | Term suggestion  | There is no good match, but curation suggests another existing EDAM term          |
 | Missing - to add | There is no good match, and there is no adequate term available currently in EDAM |
 | Out of scope     | There is no good match, and the term is not in the scope of EDAM                  |
-**Table 2.**
+**Table 2.** Types of matches determined after the mapping and manual curation of the mapping results. 
 
 While a total of 548 terms were mapped (497 biocViews terms \+ 51 non-valid terms) (Figure 5a), for the sake of the present work we will focus on the vocabulary that is either valid or actually used in current software package annotations (250 terms) (Figure 4, Figure 5b-c).
 
@@ -229,14 +229,13 @@ text2term.map_terms(source_terms="bioc_all_terms_used.tsv",
   term_type="class", incl_unmapped = True)
 ```
 
-
 ## Defining a reference set of packages
 
 While the translation of the biocViews vocabulary to EDAM terms is a first step towards the standardisation of Bioconductor software package metadata, we could go further and take full advantage of the terminology available in EDAM, including topics, operations, formats and data types. This is particularly relevant for their synchronisation with the bio.tools catalogue, and their potential future integration in platforms such as the [WorkflowHub](https://workflowhub.eu/) or the [Galaxy](https://galaxyproject.org/) project. 
 
 Since doing so manually would require a significant amount of time and expertise, we started to explore semi-automated AI-based methods. For this purpose, we decided to create a small list of packages to be curated manually, with two main purposes: serve as a basis for future annotation guidelines, and provide a gold standard to use as a reference in order to evaluate automated annotation strategies. 
 
-We created a reference set of 37 Bioconductor packages (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Reference\_packages” tab), featuring well-known, heavily downloaded packages, as well as those suggested by project contributors and developers, covering a large variety of topics. We initiated their curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Package\_curation” tab) which includes the extraction of existing annotations in bio.tools using the API, revising said annotations, and suggesting new annotations where relevant. Some package developers reviewed and updated EDAM annotations in bio.tools for their packages, providing detailed curated examples for future reference ([`xcms`](https://bio.tools/xcms), [`BridgeDbR`](https://bio.tools/bridgedbr), [`rWikiPathways`](https://bio.tools/rwikipathways)).
+We created a reference set of 45 Bioconductor packages (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Reference\_packages” tab), featuring well-known, heavily downloaded packages, as well as those suggested by project contributors and developers, covering a large variety of topics. We initiated their curation (See [supplementary spreadsheet](https://docs.google.com/spreadsheets/d/1cJZom4c6GsuClKf0qt79LSJ9BY2PVGB4l5mRO1tkuYY/edit?usp=sharing), “Package\_curation” tab) which includes the extraction of existing annotations in bio.tools using the API, revising said annotations, and suggesting new annotations where relevant. Some package developers reviewed and updated EDAM annotations in bio.tools for their packages, providing detailed curated examples for future reference ([`xcms`](https://bio.tools/xcms), [`BridgeDbR`](https://bio.tools/bridgedbr), [`rWikiPathways`](https://bio.tools/rwikipathways)).
 
 ## Automating EDAM annotations for Bioconductor packages
 
@@ -304,6 +303,7 @@ During this project, several resources were developed to support the integration
 
 # Acknowledgements
 
-This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024\. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d’Investissements d’Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This work was supported in part by NHGRI U24HG004059 “Bioconductor: An Open-Source, Open-Development Computing Resource for Genomics”. This project has been made possible in part by grants 2024-XXX (TODO: Add Vince’s CZI EOSS6 grant id), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. SN acknowledges funding from the German Federal Ministry of Education and Research in the frame of de.NBI/ELIXIR-DE (W-de.NBI-11).
+This work was performed during the ELIXIR BioHackathon Europe 2024 organised by ELIXIR in November 2024\. This work was supported by [ELIXIR](https://elixir-europe.org/), the research infrastructure for life science data. CR is part of the Institut Français de Bioinformatique (IFB, UAR 3601), funded by the Programme d’Investissements d’Avenir subsidised by the Agence Nationale de la Recherche, number ANR-11-INBS-0013. This project has been made possible in part by grants "Software for Science (Cycle 6): Ontological resource tagging and discovery for Bioconductor" ID: EOSS6-0000000067), 2024-342819 and 2024-342820 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. 
+ SN acknowledges funding from the German Federal Ministry of Education and Research in the frame of de.NBI/ELIXIR-DE (W-de.NBI-11).
 
 # References
