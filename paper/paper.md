@@ -8,11 +8,13 @@ affiliations:
 - name: "Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France"
   ror: 045f7pv37 
   index: 1
-- name: "XXXXX"
+- name: "University of Bordeaux (CBiB): Bordeaux, Nouvelle-Aquitaine, France"
+  ror: 057qpr032
   index: 2
 - name: "Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA"
   index: 3
-- name: "XXXXX"
+- name: "University of Bordeaux (CBiB): Bordeaux, Nouvelle-Aquitaine, France"
+  ror: 057qpr032
   index: 4
 - name: "ELIXIR Norway, and Department of Informatics, University of Bergen, Norway"
   ror: 03zga2b32
@@ -61,11 +63,13 @@ authors:
   orcid: "0000-0002-7684-8679"
   affiliation: 1
 - name: Aurélien Barre
+  orcid: "0009-0006-4773-3369"
   affiliation: 2
 - name: Vincent J Carey
   orcid: "0000-0003-4046-0063"
   affiliation: 3
 - name: Benjamin Dartigues
+  orcid: "0000-0003-1882-123X"
   affiliation: 4
 - name: Matúš Kalaš
   orcid: "0000-0002-1509-4981"
