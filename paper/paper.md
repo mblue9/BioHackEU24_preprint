@@ -13,24 +13,21 @@ affiliations:
   index: 2
 - name: "Channing Division of Network Medicine, Mass General Brigham, Harvard Medical School, Boston MA, 02115 USA"
   index: 3
-- name: "University of Bordeaux (CBiB): Bordeaux, Nouvelle-Aquitaine, France"
-  ror: 057qpr032
-  index: 4
 - name: "ELIXIR Norway, and Department of Informatics, University of Bergen, Norway"
   ror: 03zga2b32
-  index: 5
+  index: 4
 - name: "Heidelberg University, Faculty of Medicine and Heidelberg University Hospital, Institute for Computational Biomedicine, Heidelberg, Germany"
   ror: 00cfam450
-  index: 6
+  index: 5
 - name: "Institut Pasteur, Université Paris Cité, Bioinformatics and Biostatistics Hub, 75015, Paris, France"
   ror: 0495fxg12
-  index: 7
+  index: 6
 - name: "Leibniz Institute of Plant Biochemistry, MetaCom Center, Computational Plant Biochemistry, Halle (Saale), Germany"
   ror: 01mzk5576
-  index: 8
+  index: 7
 - name: "German Center for Diabetes Research, Munich, Germany"
   ror: 04qq88z54
-  index: 14
+  index: 8
 - name: "XXXXX"
   index: 9
 - name: "Department of Biochemistry and Molecular Biology, University of Southern Denmark, Odense, Denmark"
@@ -70,19 +67,19 @@ authors:
   affiliation: 3
 - name: Benjamin Dartigues
   orcid: "0000-0003-1882-123X"
-  affiliation: 4
+  affiliation: 2
 - name: Matúš Kalaš
   orcid: "0000-0002-1509-4981"
-  affiliation: 5
+  affiliation: 4
 - name: Sebastian Lobentanzer
   orcid: "0000-0003-3399-6695"
-  affiliation: 6
+  affiliation: 5
 - name: Hervé Ménager
   orcid: "0000-0002-7552-1009"
-  affiliation: 1, 7
+  affiliation: 1, 6
 - name: Steffen Neumann
   orcid: "0000-0002-7899-7192"
-  affiliation: 8, 14
+  affiliation: 7, 8
 - name: Kozo Nishida
   affiliation: 9
 - name: Veit Schwämmle 
