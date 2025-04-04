@@ -32,7 +32,7 @@ affiliations:
   index: 9
 - name: "Department of Biochemistry and Molecular Biology, University of Southern Denmark, Odense, Denmark"
   index: 10
-- name: "XXXXX"
+- name: "Sage Bionetworks"
   ror: 049ncjx51
   index: 11
 - name: "Dept of Translational Genomics, NUTRIM, FHML, Maastricht University, Maastricht, The Netherlands"
