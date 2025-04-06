@@ -230,7 +230,7 @@ text2term.map_terms(source_terms="bioc_all_terms_used.tsv",
 
 ## Defining a reference set of packages
 
-While the translation of the biocViews vocabulary to EDAM concepts is a first step towards the standardisation of Bioconductor software package metadata, we could go further and take full advantage of the terminology available in EDAM, including topics, operations, formats and types of data. This is particularly relevant for their synchronisation with the _bio.tools_ registry, and their potential future integration in platforms such as [WorkflowHub](https://workflowhub.eu/) or [Galaxy](https://galaxyproject.org/).
+While the translation of the biocViews vocabulary to EDAM concepts is a first step towards the standardisation of Bioconductor software package metadata, we could go further and take full advantage of the terminology available in EDAM, including topics, operations, formats and types of data. This is particularly relevant for their synchronisation with the _bio.tools_ registry, and their potential future integration in platforms such as [WorkflowHub](https://workflowhub.eu/) [@citesAsAuthority:workflowhub] or [Galaxy](https://galaxyproject.org/) [@citesAsAuthority:Galaxy].
 
 Since doing so manually would require a significant amount of time and expertise, we started to explore semi-automated AI-based methods. For this purpose, we decided to create a small list of packages to be curated manually, with two main purposes: serve as a basis for future annotation guidelines, and provide a gold standard to use as a reference in order to evaluate automated annotation strategies. 
 
