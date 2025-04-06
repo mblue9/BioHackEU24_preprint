@@ -147,7 +147,7 @@ Since _bio.tools_ is specifically intended for software and databases, it does n
 
 Key results from the BioHackathon include (1) mapping the biocViews vocabulary to the EDAM ontology, identifying gaps in the ontology and suggesting new terms and concepts; (2) defining a set of reference software packages from Bioconductor and manually annotating them, in order to provide a “gold-standard” to evaluate automated annotations; (3) developing large language model-based tools to automate the annotations; (4) synchronising Bioconductor software packages with the ELIXIR Research Software Ecosystem and (5) developing a BioChatter module to leverage the _bio.tools_ API, enabling users to query Bioconductor package information more intuitively. 
 
-## Mapping biocViews terms with EDAM
+## Mapping biocViews terms to EDAM
 
 The first step in order to shift from biocViews annotations to EDAM annotations consists in mapping the existing vocabulary with the ontology, and identifying potential gaps to be filled in the future. 
 
@@ -218,7 +218,7 @@ write.table(unique(c(annotated_terms, biocViews_vocab, biocViews_soft)),
 ```
 
 ```python
-# [python] map all terms with EDAM using text2term 
+# [python] map all terms to EDAM using text2term 
 edam_dev_owl = 
   "https://raw.githubusercontent.com/edamontology/edamontology/\
   refs/heads/main/EDAM_dev.owl"
