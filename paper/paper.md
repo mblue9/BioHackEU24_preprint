@@ -39,6 +39,7 @@ affiliations:
   ror: 02jz4aj89
   index: 12
 - name: "Limerick Digital Cancer Research Centre, School of Medicine, University of Limerick, V94 T9PX, Ireland"
+  ror: 00a0n9e72
   index: 13
 tags:
 - bioinformatics
