@@ -28,7 +28,7 @@ affiliations:
 - name: "German Center for Diabetes Research, Munich, Germany"
   ror: 04qq88z54
   index: 8
-- name: "XXXXX"
+- name: "RIKEN Center for Biosystems Dynamics Research, Kobe, Japan"
   index: 9
 - name: "Department of Biochemistry and Molecular Biology, University of Southern Denmark, Odense, Denmark"
   index: 10
