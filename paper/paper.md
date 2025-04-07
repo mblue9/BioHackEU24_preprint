@@ -2,7 +2,7 @@
 title: 'BioHackEU24 report: Integrating Bioconductor packages with the ELIXIR Research
   Software Ecosystem using EDAM'
 title_short: 'BioHackEU24 #27: Integrating Bioconductor with ELIXIR RSEc'
-date: "06 April 2025"
+date: "07 April 2025"
 output: pdf_document
 affiliations:
 - name: "Institut Français de Bioinformatique, CNRS UAR 3601, Évry, France"
